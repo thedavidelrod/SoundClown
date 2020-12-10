@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -21,6 +21,7 @@ class SignupForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
+    this.props.closeModal();
   }
   renderErrors() {
     return (
@@ -42,9 +43,8 @@ class SignupForm extends React.Component {
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          This is TimbreHaar
           <br />
-          Please {this.props.formType} or {this.props.navLink}
+          Please {this.props.formType}
           {/* {this.renderErrors()} */}
           <div className="login-form">
             <br />

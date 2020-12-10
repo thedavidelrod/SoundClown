@@ -7,10 +7,14 @@ export default class LogInForm extends Component {
       email: "",
       password: "",
     };
+    this.demoLogin = this.demoLogin.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
-
-  componentDidMount() {
-    this.props.receiveErrors([]);
+  handleSubmit(e) {
+    e.preventDefault();
+    const user = Object.assign({}, this.state);
+    this.props.processForm(user)
+    this.props.closeModal()
   }
 
   update(field) {
@@ -19,14 +23,18 @@ export default class LogInForm extends Component {
     };
   }
 
+  demoLogin(e) {
+    e.preventDefault();
+    const user = { email: "test@user.com", password: "testuser" };
+    this.props.login(user).then(() => this.props.closeModal());
+  }
   render() {
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
           This is TimbreHaar
           <br />
-          Please {this.props.formType} or {this.props.navLink}
-          {/* {this.renderErrors()} */}
+          Please {this.props.formType}
           <div className="login-form">
             <br />
             <label>
@@ -47,6 +55,16 @@ export default class LogInForm extends Component {
                 onChange={this.update("password")}
                 className="login-input"
               />
+            </label>
+            <br />
+            <label>
+              <button
+                onClick={() => {
+                  this.props.demoLogin;
+                }}
+              >
+                demo login
+              </button>
             </label>
             <br />
             <input

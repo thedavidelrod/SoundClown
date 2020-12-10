@@ -1,18 +1,20 @@
 import React from "react";
-import SignUpFormContainer from "./session/signup_form_container";
-import LoginFormContainer from "./session/login_form_container";
 import { Route, Switch } from "react-router-dom";
-import ModalContainer from "./modal/modal_container"
+import ModalContainer from "./modal/modal_container";
 import SplashContainer from "./splash/splash_container";
+import { AuthRoute, ProtectedRoute } from "../util/route_util";
+import NavbarContainer from "./navbar/navbar_container";
+import UserProfileContainer from "./user/user_profile_container";
 
 const App = () => (
-  <div>
+  <div className="main">
     <ModalContainer />
 
     <h1>This is TimbreHaar </h1>
-    <SplashContainer />
+    <Route path="/" component={NavbarContainer} />
     <Switch>
-      
+      <Route exact path="/home" component={SplashContainer} />
+      <ProtectedRoute exact path="/users/:userId" component={UserProfileContainer} />
     </Switch>
   </div>
 );

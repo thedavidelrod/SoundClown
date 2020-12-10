@@ -1,6 +1,5 @@
 import Splash from "./splash";
 import { connect } from "react-redux";
-import { fetchUsers } from "../../actions/user_actions";
 import { openModal, closeModal } from "../../actions/modal_actions";
 
 const mapStateToProps = (state) => {
