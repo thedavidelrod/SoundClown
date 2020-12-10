@@ -6,12 +6,12 @@ def create
       log_in!(@user)
       render "api/users/show"
     else
-      render :show
+      render json: @user.errors.full_messages, status: 422
     end
   end
 
   def show
-@user = User.find_by(id: params[:id])  
+@user = User.find_by(id: params[:id])
 render :show
 end
 
