@@ -2,7 +2,6 @@ import React from "react";
 import SignUpFormContainer from "./session/signup_form_container";
 import LoginFormContainer from "./session/login_form_container";
 import { Route, Switch } from "react-router-dom";
-import { Link } from "react-router-dom";
 import ModalContainer from "./modal/modal_container"
 import SplashContainer from "./splash/splash_container";
 

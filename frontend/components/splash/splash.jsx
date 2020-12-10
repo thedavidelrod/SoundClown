@@ -8,10 +8,10 @@ export default class Splash extends Component {
   render() {
     return (
       <div>
-        <button onClick={() => this.props.openModal("signup")}>
+        <button className='sign-button' onClick={() => this.props.openModal("signup")}>
           Create Account
         </button>
-        <button onClick={() => this.props.openModal("login")}>Sign In</button>
+        <button className='login-button' onClick={() => this.props.openModal("login")}>Sign In</button>
       </div>
     );
   }

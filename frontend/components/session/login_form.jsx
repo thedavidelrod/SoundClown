@@ -13,16 +13,48 @@ export default class LogInForm extends Component {
     this.props.receiveErrors([]);
   }
 
+  update(field) {
+    return (e) => {
+      this.setState({ [field]: e.target.value });
+    };
+  }
 
-  
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit()}>
-          <input
-            type="text"
-            placeholder="Your email address or profileURL"
-            onChange={this.props.update("email")} />
+      <div className="login-form-container">
+        <form onSubmit={this.handleSubmit} className="login-form-box">
+          This is TimbreHaar
+          <br />
+          Please {this.props.formType} or {this.props.navLink}
+          {/* {this.renderErrors()} */}
+          <div className="login-form">
+            <br />
+            <label>
+              Email:
+              <input
+                type="text"
+                value={this.state.email}
+                onChange={this.update("email")}
+                className="login-input"
+              />
+            </label>
+            <br />
+            <label>
+              Password:
+              <input
+                type="password"
+                value={this.state.password}
+                onChange={this.update("password")}
+                className="login-input"
+              />
+            </label>
+            <br />
+            <input
+              className="session-submit"
+              type="submit"
+              value={this.props.formType}
+            />
+          </div>
         </form>
       </div>
     );
