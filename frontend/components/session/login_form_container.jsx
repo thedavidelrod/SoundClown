@@ -6,7 +6,6 @@ import LogInForm from './login_form'
 
 import {
   receiveErrors,
-  receiveError,
   clearErrors,
 } from "../../actions/errors_actions";
 

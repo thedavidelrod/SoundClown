@@ -1,19 +1,18 @@
 import { connect } from "react-redux";
 import React from "react";
-import { Link } from "react-router-dom";
 import { signup } from "../../actions/session_actions";
 import SignupForm from "./signup_form";
 import {closeModal} from "../../actions/modal_actions"
 
 import {
   receiveErrors,
-  receiveError,
   clearErrors,
 } from "../../actions/errors_actions";
-
-const mapStateToProps = ({ errors }) => {
+// { errors }
+const mapStateToProps = (state) => {
   return {
-    errors: errors.session,
+    user: state.entities.users[state.session.id],
+    errors: state.errors.session,
     formType: "signup",
   };
 };
@@ -22,7 +21,7 @@ const mapStateToProps = ({ errors }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     processForm: (user) => dispatch(signup(user)),
-    receiveError: (error) => dispatch(receiveError(error)),
+    //receiveError: (error) => dispatch(receiveError(error)),
     clearErrors: () => dispatch(clearErrors()),
     receiveErrors: (errors) => dispatch(receiveErrors(errors)),
     closeModal: () => dispatch(closeModal()),

@@ -18,7 +18,6 @@ export default class LogInForm extends Component {
   }
 
   renderErrors() {
-    console.log(this.props.errors)
     return (
       <ul>
         {this.props.errors.map((error, i) => (
@@ -41,7 +40,6 @@ export default class LogInForm extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
@@ -50,37 +48,34 @@ export default class LogInForm extends Component {
           <h1>Log In</h1>
           <div className="login-form">
             <br />
-            <label>
-              
-              {this.renderErrors()}
-              <input
-                placeholder="Your email address"
-                type="text"
-                value={this.state.email}
-                onChange={this.update("email")}
-                className="login-input"
-              />
-            </label>
+
+            <input
+              placeholder="Your email address"
+              type="text"
+              value={this.state.email}
+              onChange={this.update("email")}
+              className="login-input"
+            />
+
             <br />
-            <label>
-              <input
-                placeholder="Your password"
-                type="password"
-                value={this.state.password}
-                onChange={this.update("password")}
-                className="login-input"
-              />
-            </label>
+
+            <input
+              placeholder="Your password"
+              type="password"
+              value={this.state.password}
+              onChange={this.update("password")}
+              className="login-input"
+            />
             <br />
-            <label>
-              <button onClick={this.demoLogin}>Demo Login</button>
-            </label>
+
+            <button onClick={this.demoLogin}>Demo Login</button>
             <br />
             <input
               className="session-submit"
               type="submit"
               value={this.props.formType}
             />
+            {this.renderErrors()}
           </div>
         </form>
       </div>

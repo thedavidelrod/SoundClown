@@ -8,7 +8,7 @@ def create
       log_in!(@user)
       render "api/users/show"
     else
-      render json: ["Enter a valid email address or profile url."], status: 401
+      render json: ["Something went wrong."], status: 401
     end
 
 end
@@ -21,7 +21,7 @@ def destroy
     log_out!
     render "api/users/show"
   else
-    render json: ["Enter a valid email address or profile url."], status: 404
+    render json: ["Something went wrong."], status: 404
   end
 end
 
