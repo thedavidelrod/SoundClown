@@ -8,6 +8,8 @@ class Modal extends React.Component {
     super(props);
   }
 
+  
+
   render() {
     if (!this.props.modal) {
       return null;
@@ -15,10 +17,10 @@ class Modal extends React.Component {
 
     let component;
     switch (this.props.modal) {
-      case 'login':
+      case "login":
         component = <LoginFormContainer />;
         break;
-      case 'signup':
+      case "signup":
         component = <SignupFormContainer />;
         break;
       default:
@@ -26,8 +28,10 @@ class Modal extends React.Component {
     }
     return (
       <div className="modal-background" onMouseDown={this.props.closeModal}>
-        <button className="modal-close-button" onClick={this.props.closeModal}>x</button>
-        <div className="modal-child" onMouseDown={e => e.stopPropagation()}>
+        <button className="modal-close-button" onClick={this.props.closeModal}>
+          x
+        </button>
+        <div className="modal-child" onMouseDown={(e) => e.stopPropagation()}>
           {component}
         </div>
       </div>

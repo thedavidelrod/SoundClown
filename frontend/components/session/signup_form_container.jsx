@@ -5,6 +5,12 @@ import { signup } from "../../actions/session_actions";
 import SignupForm from "./signup_form";
 import {closeModal} from "../../actions/modal_actions"
 
+import {
+  receiveErrors,
+  receiveError,
+  clearErrors,
+} from "../../actions/errors_actions";
+
 const mapStateToProps = ({ errors }) => {
   return {
     errors: errors.session,

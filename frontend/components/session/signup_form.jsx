@@ -23,6 +23,7 @@ class SignupForm extends React.Component {
     this.props.processForm(user);
     this.props.closeModal();
   }
+  
   renderErrors() {
     return (
       <ul>
@@ -44,29 +45,28 @@ class SignupForm extends React.Component {
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <br />
-          Please {this.props.formType}
-          {/* {this.renderErrors()} */}
+          <h1>Enter TimbreHaar</h1>
+          {this.renderErrors()}
           <div className="login-form">
             <br />
-            <label>
-              Email:
+           
               <input
                 type="text"
+                placeholder='Enter your Email address'
                 value={this.state.email}
                 onChange={this.update("email")}
                 className="login-input"
               />
-            </label>
             <br />
-            <label>
-              Password:
+           
+              
               <input
                 type="password"
+                placeholder='Create a password'
                 value={this.state.password}
                 onChange={this.update("password")}
                 className="login-input"
               />
-            </label>
             <br />
             <input
               className="session-submit"

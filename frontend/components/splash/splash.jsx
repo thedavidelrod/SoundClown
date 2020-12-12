@@ -8,11 +8,8 @@ export default class Splash extends Component {
   render() {
     return (
       <div className = 'splash-main'>
-
-        
-        
-        
-      </div>
+        <div className = 'home-photo'></div>
+     </div>
     );
   }
 }

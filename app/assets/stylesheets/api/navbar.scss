@@ -1,5 +1,143 @@
 .navbar {
-  position: relative;
-  display: inline-block;
+  display: flex;
+    position: absolute;
+    width: 100%;
+    height: 46px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    font: 14px/1.5 normal white;
+    background-color: #3b3a3a;
+    z-index: 2;
+    top: 0;
 }
 
+.nav-left {
+  color: white;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.logo-left {
+  background: image_url("soundcloud_logo.png");
+  background-repeat: no-repeat;
+  height: 45px;
+  width: 50px;
+  position: relative;
+  
+  left: 11px;
+  padding-top: 1px;
+  z-index: 1;
+  background-size: cover;
+}
+
+.login-buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.login-button {
+  align-items: flex-end;
+  width: 136px;
+  font-weight: 100;
+  width: 74px;
+  padding: 2px 11px 2px 10px;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+  font-weight: 100;
+  text-align: center;
+  vertical-align: baseline;
+  margin-right: 15px;
+  background-color: rgb(59, 58, 58);
+  color: white;
+
+}
+
+.signup-button {
+  align-items: flex-end;
+  padding: 2px 11px 2px 10px;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+  font-weight: 100;
+  text-align: center;
+  vertical-align: baseline;
+  width: 136px;
+  background-color: #f50;
+  color: white;
+  margin-right: 100px;
+}
+.signup-button:hover {
+  color: white;
+}
+.logout-button {
+  align-items: flex-end;
+  position: flex;
+  width: 136px;
+  font-weight: 100;
+  width: 74px;
+  padding: 2px 11px 2px 10px;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+  font-weight: 100;
+  text-align: center;
+  vertical-align: baseline;
+  background-color: rgb(59, 58, 58);
+  color: white;
+}
+
+.home-button {
+  display: block;
+  padding: 12px 0;
+  width: 104px;
+  height: 46px;
+  border-right: 1px solid #111;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: rgb(59, 58, 58);
+    color: lightgrey;
+    margin-left: px;
+
+}
+.stream-button {
+  display: block;
+  padding: 12px 0;
+  width: 104px;
+  height: 46px;
+  border-right: 1px solid #111;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: rgb(59, 58, 58);
+    color: lightgrey;
+
+}
+.library-button {
+  display: block;
+  padding: 12px 0;
+  width: 104px;
+  height: 46px;
+  border-right: 1px solid #111;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: rgb(59, 58, 58);
+    color: lightgray;
+
+}

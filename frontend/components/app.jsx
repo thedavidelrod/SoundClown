@@ -8,13 +8,12 @@ import UserProfileContainer from "./user/user_profile_container";
 
 const App = () => (
   <div className="main">
-    <ModalContainer />
-
-    <h1>This is TimbreHaar </h1>
+    {/* <ModalContainer /> */}
+    <SplashContainer />
     <Route path="/" component={NavbarContainer} />
     <Switch>
-      <Route exact path="/home" component={SplashContainer} />
-      <ProtectedRoute exact path="/users/:userId" component={UserProfileContainer} />
+      <AuthRoute path="/" component={ModalContainer} />
+      <ProtectedRoute exact path="/home" component={UserProfileContainer} />
     </Switch>
   </div>
 );

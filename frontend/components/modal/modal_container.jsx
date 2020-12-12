@@ -2,6 +2,7 @@ import Modal from "./Modal"
 import {connect} from "react-redux"
 import {closeModal} from '../../actions/modal_actions'
 
+
 const mapStateToProps = (state) => {
   return {
     modal: state.ui.modal,
@@ -11,6 +12,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     closeModal: () => dispatch(closeModal()),
+
   };
 };
 
