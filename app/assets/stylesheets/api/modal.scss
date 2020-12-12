@@ -6,6 +6,7 @@
   left: 0;
   background: rgba(0, 0, 0, 0.7);
   z-index: 10;
+  
 }
 
 .modal-child {
@@ -21,18 +22,10 @@
 }
 
 
-// .modal-close-button {
-//   position: absolute;
-//   top: 5px;
-//   right: 5px;
-//   cursor: pointer;
-//   color: #333;
-
-// }
-
 .login-form {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
+

@@ -17,6 +17,11 @@ class SignupForm extends React.Component {
       });
   }
 
+
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
@@ -32,7 +37,6 @@ class SignupForm extends React.Component {
         ))}
       </ul>
     );
-        
   }
 
   update(field) {
@@ -46,11 +50,12 @@ class SignupForm extends React.Component {
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <br />
-          <h1>Enter TimbreHaar</h1>
+          <h1 className='log-in'>Enter TimbreHaar</h1>
 
           <div className="login-form">
             <br />
             <input
+              className="login-input"
               type="text"
               placeholder="Enter your Email address"
               value={this.state.email}
@@ -60,6 +65,7 @@ class SignupForm extends React.Component {
             <br />
 
             <input
+              classname="login-input"
               type="password"
               placeholder="Create a password"
               value={this.state.password}
@@ -73,7 +79,16 @@ class SignupForm extends React.Component {
               type="submit"
               value={this.props.formType}
             />
+            
             {this.renderErrors()}
+            <span className="fine-print-signup">
+              <p>
+                We may use your email and devices for updates and tips on
+                Timbrehaar's products and services, and for activities
+                notifications. You can unsubscribe for free at any time in your
+                notification settings.
+              </p>
+            </span>
           </div>
         </form>
       </div>

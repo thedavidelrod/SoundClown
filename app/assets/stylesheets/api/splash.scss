@@ -9,3 +9,39 @@
   margin: 0 auto;
   display: flex;
 }
+
+.splash-text {
+  display: flex;
+  justify-content: center;
+  font-size: 32px;
+  color: white;
+  text-shadow: 2px 2px black;
+  font-family: Interstate, "Lucida Grande", Arial, sans-serif;
+;
+}
+
+.splash-title {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translate(-50%);
+  text-align: center;
+  letter-spacing: 1px;
+  z-index: 4;
+}
+
+.splash-sub {
+  text-align: center;
+  z-index: 4;
+  position: absolute;
+  font-size: 24px;
+  line-height: 41.6px;
+  font-weight: 300;
+  margin: 0 auto 30px;
+  margin-top: 0px;
+  margin-right: auto;
+  margin-bottom: 30px;
+  margin-left: auto;
+      top: 175px;
+
+}

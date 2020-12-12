@@ -27,6 +27,10 @@ export default class LogInForm extends Component {
     );
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
   update(field) {
     return (e) => {
       this.setState({ [field]: e.target.value });
@@ -45,7 +49,7 @@ export default class LogInForm extends Component {
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <br />
 
-          <h1>Log In</h1>
+          <h1 className='log-in'>Log In</h1>
           <div className="login-form">
             <br />
 
@@ -68,14 +72,23 @@ export default class LogInForm extends Component {
             />
             <br />
 
-            <button onClick={this.demoLogin}>Demo Login</button>
             <br />
             <input
               className="session-submit"
               type="submit"
               value={this.props.formType}
             />
+            <button className='demo-log' onClick={this.demoLogin}>Demo Login</button>
+            <br />
             {this.renderErrors()}
+            <span className="fine-print">
+              <p>
+                We may use your email and devices for updates and tips on
+                Timbrehaar's products and services, and for activities
+                notifications. You can unsubscribe for free at any time in your
+                notification settings.
+              </p>
+            </span>
           </div>
         </form>
       </div>
