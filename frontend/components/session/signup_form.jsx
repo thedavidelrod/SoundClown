@@ -81,7 +81,7 @@ class SignupForm extends React.Component {
             />
             
             {this.renderErrors()}
-            <span className="fine-print-signup">
+            <span className="fine-print-signupx">
               <p>
                 We may use your email and devices for updates and tips on
                 Timbrehaar's products and services, and for activities
