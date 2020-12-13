@@ -11,9 +11,9 @@ export const receiveSounds = (sounds) => ({
   sounds,
 });
 
-export const receiveSound = (sound) => ({
+export const receiveSound = (payload) => ({
   type: RECEIVE_SOUND,
-  sound,
+  payload,
 });
 
 export const removeSound = (soundId) => ({
@@ -40,7 +40,7 @@ export const fetchSounds = () => (dispatch) => {
 export const fetchSound = (id) => (dispatch) => {
   dispatch(requestSoundFetch());
   return SoundAPI.fetchSound(id).then(
-    (sound) => dispatch(receiveSound(sound)),
+    (payload) => dispatch(receiveSound(payload)),
     (err) => dispatch(receiveTrackErrors(err.responseJSON))
   );
 };
