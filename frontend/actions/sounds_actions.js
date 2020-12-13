@@ -4,7 +4,6 @@ export const RECEIVE_SOUNDS = `RECEIVE_SOUNDS`;
 export const RECEIVE_SOUND = `RECEIVE_SOUND`;
 export const REMOVE_SOUND = `REMOVE_SOUND`;
 export const RECEIVE_SOUND_ERRORS = `RECEIVE_SOUND_ERRORS`;
-export const REQUEST_SOUND_FETCH = `REQUEST_SOUND_FETCH`;
 
 export const receiveSounds = (sounds) => ({
   type: RECEIVE_SOUNDS,
@@ -38,10 +37,9 @@ export const fetchSounds = () => (dispatch) => {
 };
 
 export const fetchSound = (id) => (dispatch) => {
-  dispatch(requestSoundFetch());
   return SoundAPI.fetchSound(id).then(
     (payload) => dispatch(receiveSound(payload)),
-    (err) => dispatch(receiveTrackErrors(err.responseJSON))
+    (err) => dispatch(receiveSoundErrors(err.responseJSON))
   );
 };
 

@@ -10,9 +10,12 @@ export default class Navbar extends Component {
 
     if (this.props.user) {
       buttons = (
-        <button className="logout-button" onClick={this.props.logout}>
-          logout
-        </button>
+        <div className='loggedin-right'>
+          <Link to= '/sounds/new' className= 'upload-button'>Upload</Link>
+          <button className="logout-button" onClick={this.props.logout}>
+            Logout
+          </button>
+        </div>
       );
     } else {
       buttons = (

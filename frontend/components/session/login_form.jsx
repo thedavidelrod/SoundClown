@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { Link } from 'react-router-dom'
 export default class LogInForm extends Component {
   constructor(props) {
     super(props);
@@ -14,7 +14,7 @@ export default class LogInForm extends Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
-    //this.props.closeModal();
+    
   }
 
   renderErrors() {
@@ -49,7 +49,7 @@ export default class LogInForm extends Component {
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <br />
 
-          <h1 className='log-in'>Log In</h1>
+          <h1 className="log-in">Log In</h1>
           <div className="login-form">
             <br />
 
@@ -77,8 +77,12 @@ export default class LogInForm extends Component {
               className="session-submit"
               type="submit"
               value={this.props.formType}
+
             />
-            <button className='demo-log' onClick={this.demoLogin}>Demo Login</button>
+            
+            <button className="demo-log" onClick={this.demoLogin}>
+              Demo Login
+            </button>
             <br />
             {this.renderErrors()}
             <span className="fine-print">

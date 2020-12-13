@@ -12,7 +12,7 @@ export default class Splash extends Component {
           <h1 className="splash-title">Discover your sound in TimbreHaar</h1>
           <div className="splash-sub">
             <h2 >
-              Upload your first track and begin your journey.
+              Upload your first sounds and begin your journey.
             </h2>
             <h2>
               TimbreHaar gives you space to create, find your fans, and connect

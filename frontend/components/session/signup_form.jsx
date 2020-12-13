@@ -65,7 +65,7 @@ class SignupForm extends React.Component {
             <br />
 
             <input
-              classname="login-input"
+              className="login-input"
               type="password"
               placeholder="Create a password"
               value={this.state.password}

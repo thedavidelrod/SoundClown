@@ -18,7 +18,6 @@ export const createSound = (sound) => (
     url: `api/sounds`,
     processData: false,
     contentType: false,
-    dataType: `json`,
     data: { sound },
   })
 );
@@ -29,7 +28,6 @@ export const updateSound = (sound, id) =>
     url: `api/sounds/${id}`,
     processData: false,
     contentType: false,
-    dataType: `json`,
     data: {sound}
   });
 
