@@ -12,15 +12,15 @@ export const fetchSound = (id) => (
   })
 );
 
-export const createSound = (sound) => (
+export const createSound = (sound) =>
   $.ajax({
     method: `POST`,
     url: `api/sounds`,
     processData: false,
     contentType: false,
-    data: { sound },
-  })
-);
+    data: sound,
+    dataType: "json",
+  });
 
 export const updateSound = (sound, id) =>
   $.ajax({
@@ -28,7 +28,8 @@ export const updateSound = (sound, id) =>
     url: `api/sounds/${id}`,
     processData: false,
     contentType: false,
-    data: {sound}
+    data: { sound },
+    dataType: "json",
   });
 
 export const deleteSound = (id) => (

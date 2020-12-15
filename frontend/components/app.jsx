@@ -4,16 +4,19 @@ import ModalContainer from "./modal/modal_container";
 import SplashContainer from "./splash/splash_container";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import NavbarContainer from "./navbar/navbar_container";
-import SoundIndexContainer from "./sounds/sound_index_container"
+import SoundIndexContainer from "./sounds/sound_index_container";
+import UploadFormContainer from "./sounds/upload_form_container";
+
 const App = () => (
   <div className="main">
     <ModalContainer />
     <Route path="/" component={NavbarContainer} />
-      
     <Switch>
+      <Route path="/sounds/new" component={UploadFormContainer} />
       <Route path="/sounds" component={SoundIndexContainer} />
       <AuthRoute path="/" component={SplashContainer} />
     </Switch>
+
   </div>
 );
 export default App;

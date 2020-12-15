@@ -46,14 +46,14 @@ export const fetchSound = (id) => (dispatch) => {
 export const createSound = (sound) => (dispatch) => {
   return SoundAPI.createSound(sound).then(
     (sound) => dispatch(receiveSound(sound)),
-    (err) => dispatch(err.responseJSON)
+    (err) => dispatch(receiveSoundErrors(err.responseJSON))
   );
 };
 
 export const updateSound = (sound, id) => (dispatch) => {
   return SoundAPI.updateSound(sound, id).then(
     (sound) => dispatch(receiveSound(sound)),
-    (err) => dispatch(err.responseJSON)
+    (err) => dispatch(receiveSoundErrors(err.responseJSON))
   );
 };
 
