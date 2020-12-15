@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class UploadForm extends Component {
+export default class SoundForm extends Component {
   constructor(props) {
     super(props);
     this.state = this.props.sound;
@@ -8,7 +8,7 @@ export default class UploadForm extends Component {
     this.handlePhoto = this.handlePhoto.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  
+
   handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();

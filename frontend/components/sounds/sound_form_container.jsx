@@ -1,5 +1,5 @@
 import {connect} from 'react-redux'
-import UploadForm from './upload_form'
+import SoundForm from './sound_form'
 import {createSound} from '../../actions/sounds_actions'
 const mSTP = (state) => {
     
@@ -23,5 +23,5 @@ action: (sound) => dispatch(createSound(sound))
 
 })
 
-export default connect(mSTP, mDTP)(UploadForm)
+export default connect(mSTP, mDTP)(SoundForm);
 

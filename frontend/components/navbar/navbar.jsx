@@ -39,8 +39,8 @@ export default class Navbar extends Component {
 
     return (
       <div className="navbar">
-        <div className="nav-left">
-          <div className="logo-left"></div>
+        <div className="nav-left">      
+          <div className="logo-left"> <Link to='/'></Link></div>
           <button className="home-button"> Home</button>
           <button className="stream-button">Stream</button>
           <button className="library-button">Library</button>

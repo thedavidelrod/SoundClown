@@ -9,7 +9,7 @@ import {
 const mSTP = (state) => ({
   sounds: state.entities.sounds,
   errors: state.errors.sounds,
-  currentUser: state.session.currentUser,
+  user: state.session.id,
 });
 
 
