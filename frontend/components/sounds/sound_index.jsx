@@ -9,8 +9,10 @@ export default class SoundIndex extends Component {
   }
 
   render() {
-    let { sounds, errors } = this.props;
-    
+    // let { sounds, errors, user } = this.props;
+    // let soundItems = Object.keys(sounds).map(key =>(
+
+    // ))
 
     return (
       <div className="sound-index">

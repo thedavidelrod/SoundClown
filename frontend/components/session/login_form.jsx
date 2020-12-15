@@ -19,7 +19,7 @@ export default class LogInForm extends Component {
 
   renderErrors() {
     return (
-      <ul>
+      <ul className='errors-words'>
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>{error}</li>
         ))}
