@@ -55,8 +55,8 @@ export default class SoundForm extends Component {
   render() {
     return (
       <div className="upload-form">
-        <form onSubmit={this.handleSubmit}>
-          <h1>Upload to TimbreHaar</h1>
+        <form onSubmit={this.handleSubmit} className="ui-form">
+          <h1 className="upload-h1">Upload to TimbreHaar</h1>
           <input
             className="upload-form-input-title"
             type="text"
@@ -75,9 +75,20 @@ export default class SoundForm extends Component {
             placeholder="Sound Description"
             onChange={this.update("body")}
           />
-          <input type="file" onChange={this.handlePhoto} />
-          Upload a photo
-          <input type="file" onChange={this.handleSound} />
+          <span className="upload-submit">
+            <input
+              type="file"
+              onChange={this.handlePhoto}
+              className="ui-photo"
+            />
+            Upload a photo
+            <input 
+              type="file"
+              onChange={this.handleSound}
+              className="ui-sound"
+              background= '#orange'
+            />
+          </span>
           Upload a sound
           <br />
           <br />

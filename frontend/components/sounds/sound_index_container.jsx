@@ -4,6 +4,7 @@ import {
   fetchSounds,
   fetchSound,
   deleteSound,
+  updateSound
 } from "../../actions/sounds_actions";
 
 const mSTP = (state) => ({
@@ -17,6 +18,8 @@ const mDTP = (dispatch) => ({
     fetchSounds: () => dispatch(fetchSounds()),
     fetchSound: (id) => dispatch(fetchSound(id)),
     deleteSound: (soundId) => dispatch(deleteSound(soundId)),
+    updateSound: (sound, id) => dispatch((updateSound(sound, id)))
+
 
 })
 
