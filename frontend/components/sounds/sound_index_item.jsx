@@ -13,27 +13,7 @@ export default class SoundIndexItem extends Component {
     this.props.deleteSound(soundId);
   }
 
-  // updateSound(sound, id) {
-  //     e.preventDefault
-
-  // }
-
-  // loggedInButtons() {
-  //   if (this.props.user.id === this.props.sounds.id) {
-  //     //if logged in, render edit and delete buttons
-  //     <div>
-  //       <Link to={`/sounds/${soundId}`} className="si-edit-button">
-  //         Edit
-  //       </Link>
-  //       <button
-  //         className="si-delete-button"
-  //         onClick={() => this.props.deleteSound}
-  //       >
-  //         Delete
-  //       </button>
-  //     </div>;
-  //   }
-  // }
+  
 
   render() {
     
@@ -52,7 +32,6 @@ export default class SoundIndexItem extends Component {
           {this.props.sound.body}
         </span>
 
-        {/* {loggedInButtons} */}
       </div>
     );
   }

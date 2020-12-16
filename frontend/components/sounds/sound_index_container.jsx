@@ -7,7 +7,7 @@ import {
   updateSound
 } from "../../actions/sounds_actions";
 
-const mSTP = (state) => ({
+const mSTP = (state, ownProps) => ({
   sounds: state.entities.sounds,
   errors: state.errors.sounds,
   user: state.session.id,
