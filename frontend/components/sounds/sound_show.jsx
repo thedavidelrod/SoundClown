@@ -30,7 +30,7 @@ export default class SoundShow extends Component {
         </button>
         );
     }
-
+       
     return (
       <div className="ss-main">
         <div className="ss-info">

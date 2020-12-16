@@ -8,17 +8,20 @@ import SoundIndexContainer from "./sounds/sound_index_container";
 import SoundFormContainer from "./sounds/sound_form_container";
 import SoundShowContainer from "./sounds/sound_show_container"
 import UserShowContainer from "./user/user_show_container"
+import EditFormContainer from "./sounds/edit_form_container"
 
 const App = () => (
   <div className="main">
     <ModalContainer />
     <Route path="/" component={NavbarContainer} />
+    
     <Switch>
-      <ProtectedRoute path="/users/:id" component={UserShowContainer} />
       <ProtectedRoute path="/sounds/new" component={SoundFormContainer} />
+      <ProtectedRoute path="/sounds/:id/edit" component={EditFormContainer} />
       <ProtectedRoute path="/sounds/:id" component={SoundShowContainer} />
       <ProtectedRoute path="/sounds" component={SoundIndexContainer} />
-      <Route path="/" component={SplashContainer} />
+      <ProtectedRoute path="/users/:id" component={UserShowContainer} />
+      <AuthRoute path="/" component={SplashContainer} />
     </Switch>
   </div>
 );
