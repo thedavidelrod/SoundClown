@@ -14,13 +14,12 @@ const App = () => (
     <ModalContainer />
     <Route path="/" component={NavbarContainer} />
     <Switch>
-      <Route path="/users/:id" component={UserShowContainer} /> 
-      <Route path="/sounds/new" component={SoundFormContainer} />
-      <Route path="/sounds/:id" component={SoundShowContainer} />
-      <Route path="/sounds" component={SoundIndexContainer} />
-      <AuthRoute path="/" component={SplashContainer} />
+      <ProtectedRoute path="/users/:id" component={UserShowContainer} />
+      <ProtectedRoute path="/sounds/new" component={SoundFormContainer} />
+      <ProtectedRoute path="/sounds/:id" component={SoundShowContainer} />
+      <ProtectedRoute path="/sounds" component={SoundIndexContainer} />
+      <Route path="/" component={SplashContainer} />
     </Switch>
-
   </div>
 );
 export default App;

@@ -13,7 +13,7 @@ export default class UserShow extends Component {
 
     }
     render() {
-        debugger
+        
         return (
             <div>
                 <h1>test user profile</h1>

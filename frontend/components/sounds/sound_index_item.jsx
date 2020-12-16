@@ -25,13 +25,14 @@ export default class SoundIndexItem extends Component {
           </Link>
           <audio src={this.props.sound.SoundUrl}></audio>
           <br />
-          {this.props.sound.title}
-          <br />
-          {this.props.sound.tag}
-          <br />
-          {this.props.sound.body}
+          <span className="si-words">
+            <span className="si-title">{this.props.sound.title}</span>
+            <br />
+            <span className="si-tag">{this.props.sound.tag}</span>
+            <br />
+            <span className="si-body">{this.props.sound.body}</span>
+          </span>
         </span>
-
       </div>
     );
   }

@@ -25,7 +25,7 @@ export default class SoundShow extends Component {
 
     if (this.props.sound.uploader_id === this.props.user) {
       buttons = (
-        <button onClick={this.props.deleteSound(this.props.sound.id)}>
+        <button onClick={() => this.props.deleteSound(this.props.sound.id)}>
           Delete
         </button>
         );
@@ -35,13 +35,14 @@ export default class SoundShow extends Component {
       <div className="ss-main">
         <div className="ss-info">
           <img src={this.props.sound.photoUrl} id="si-image" />
-          {this.props.sound.title}
+          <span className="ss-title">{this.props.sound.title}</span>
           <br />
-          {this.props.sound.tag}
+          <span className="ss-tag">{this.props.sound.tag}</span>
           <br />
-          {this.props.sound.body}
-          <audio>{this.props.sound.soundUrl}</audio>
-          {buttons}
+          <span className="ss-body">{this.props.sound.body}</span>
+
+          <audio src={this.props.sound.soundUrl}></audio>
+          <div className='si-buttons'>{buttons}</div>
         </div>
       </div>
     );

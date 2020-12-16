@@ -3,15 +3,28 @@ import { Link } from "react-router-dom";
 export default class Navbar extends Component {
   constructor(props) {
     super(props);
+    this.home = this.home.bind(this)
+    this.stream = this.stream.bind(this)
   }
+  
+home() {
+  this.props.history.push('/')
+}
+
+stream() {
+  this.props.history.push('/sounds')
+}
 
   render() {
     let buttons;
 
     if (this.props.user) {
       buttons = (
-        <div className='loggedin-right'>
-          <Link to= '/sounds/new' className= 'upload-button'>Upload</Link>
+        <div className="loggedin-right">
+          
+            <Link to="/sounds/new" className="upload-button">
+              Upload
+            </Link>
           <button className="logout-button" onClick={this.props.logout}>
             Logout
           </button>
@@ -40,9 +53,9 @@ export default class Navbar extends Component {
     return (
       <div className="navbar">
         <div className="nav-left">      
-          <div className="logo-left"> <Link to='/'></Link></div>
-          <button className="home-button"> Home</button>
-          <button className="stream-button">Stream</button>
+          <div className="logo-left"> </div>
+          <button className="home-button" onClick={this.home}> Home</button>
+          <button className="stream-button" onClick={this.stream}>Stream</button>
           <button className="library-button">Library</button>
         </div>
 

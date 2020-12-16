@@ -1,7 +1,7 @@
 import {connect} from 'react-redux'
 import SoundForm from './sound_form'
 import {createSound} from '../../actions/sounds_actions'
-
+import {withRouter} from 'react-router-dom'
 
 const mSTP = (state) => {
     
@@ -25,5 +25,5 @@ action: (sound) => dispatch(createSound(sound))
 
 })
 
-export default connect(mSTP, mDTP)(SoundForm);
+export default withRouter(connect(mSTP, mDTP)(SoundForm));
 
