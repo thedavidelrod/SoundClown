@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
-
+ 
 export default class SoundIndexItem extends Component {
   constructor(props) {
     super(props);
@@ -13,16 +13,14 @@ export default class SoundIndexItem extends Component {
     this.props.deleteSound(soundId);
   }
 
-  
-
   render() {
-    
     return (
       <div className="sound-index-item">
         <span className="si-sound-image">
           <Link to={`/sounds/${this.props.sound.id}`}>
             <img id="si-image" src={this.props.sound.photoUrl} />
           </Link>
+
           <audio src={this.props.sound.SoundUrl}></audio>
           <br />
           <span className="si-words">

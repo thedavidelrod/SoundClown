@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import PlayContainer from '../sound_player/play_container'
 export default class SoundShow extends Component {
   constructor(props) {
     super(props);
-    this.deleteSound = this.deleteSound.bind(this)
+    this.deleteSound = this.deleteSound.bind(this);
+    this.editSound = this.editSound.bind(this);
   }
 
   componentDidMount() {
@@ -14,7 +16,10 @@ export default class SoundShow extends Component {
     this.props.deleteSound(id);
   }
 
-  
+  editSound(id) {
+    
+    this.props.history.push(`/sounds/${id}/edit/`);
+  }
 
   render() {
     if (!this.props.sound) {
@@ -25,12 +30,16 @@ export default class SoundShow extends Component {
 
     if (this.props.sound.uploader_id === this.props.user) {
       buttons = (
-        <button onClick={() => this.props.deleteSound(this.props.sound.id)}>
-          Delete
-        </button>
-        );
+        <div className='ss-edit-buttons'>
+          <button onClick={() => this.props.deleteSound(this.props.sound.id)}>
+            Delete
+          </button>
+          <button onClick={() => this.editSound(this.props.sound.id)}>Edit
+          </button>
+        </div>
+      );
     }
-       
+
     return (
       <div className="ss-main">
         <div className="ss-info">
@@ -40,9 +49,8 @@ export default class SoundShow extends Component {
           <span className="ss-tag">{this.props.sound.tag}</span>
           <br />
           <span className="ss-body">{this.props.sound.body}</span>
-
-          <audio src={this.props.sound.soundUrl}></audio>
-          <div className='si-buttons'>{buttons}</div>
+        <PlayContainer soundId={this.props.sound.id} />
+          <div className="si-buttons">{buttons}</div>
         </div>
       </div>
     );
