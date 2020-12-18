@@ -1,3 +1,123 @@
-audio {
+.player-parent {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 48px;
+  min-width: 1240px;
+  border-top: 1px solid lightgray;
+  background: #f2f2f2;
+  font-family: "Open Sans", sans-serif;
+  z-index: 10;
+  vertical-align: baseline;
+  left: 0%;
+}
+.sound-player {
+        display: flex;
+    align-items: center;
+    width: 75%;
+    padding: 0 20px 0 30px
+}
+
+.player-buttons {
+    display: flex;
+  border: 0;
+  background: transparent;
+  text-decoration: none;
+  outline: none;
+    background-color: transparent;
+    border: none
+}
+
+.player-back {
+  margin-right: 13px;
+  outline: none;
+    background-color: transparent;
+    border: none
+}
+.player-play {
+  margin-right: 13px;
+  outline: none;
+    background-color: transparent;
+    border: none
+}
+
+.player-next {
+  margin-right: 13px;
+  outline: none;
+    background-color: transparent;
+    border: none
+}
+
+.current-song-time {
+ font-size: 11px;
+    display: flex;
+    align-items: center;
+    color: #f50;
+    margin-left: auto;
+}
+.timer-scroll {
+      display: flex;
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;           
+}
+.scroll-bar {
+    display: flex;
+    width: 55vw;
+    height: 1px;
+
+}
+.player-right {
     position: absolute;
-    bottom: 0;}
+    bottom: 0px;
+    right: 10vw;
+    margin-right: auto;
+    margin-left: 22px;
+}
+.player-right img {
+  object-fit: cover;
+  height: 30px;
+  width: 30px;
+}
+
+.player-title-artist {
+  text-decoration: none;
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  left: 3vw;
+  bottom: 2vw;
+  font-size: 12px;
+}
+.player-title {
+    text-decoration: none;
+    font-size: 11px;
+}
+
+.total-song-time {
+    display: flex;
+    margin-right: auto;
+    font-size:12px;
+    
+}
+.volume {
+   
+    height: 49px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    
+}
+.volume button {
+  outline: none;
+    background-color: transparent;
+    border: none
+}
+
+.volume-slider input {
+    height: 3px;
+    width: 120px;
+}

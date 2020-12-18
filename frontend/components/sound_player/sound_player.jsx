@@ -171,7 +171,7 @@ export default class SoundPlayer extends Component {
 
           <div className="timer-scroll">
             <p className="current-song-time">
-              {formatSoundTime(this.state.elapsedTime)}{" "}
+              {formatSoundTime(this.state.elapsedTime)}
             </p>
             <input
               id="scroll-bar"
@@ -189,7 +189,7 @@ export default class SoundPlayer extends Component {
           <div
             className="volume"
             onMouseEnter={() => this.setState({ volumeHover: true })}
-            onMouseLeave={() => this.setState({ volumeHover: true })}
+            onMouseLeave={() => this.setState({ volumeHover: false })}
           >
             <button>
               {this.state.volumeHover ? (

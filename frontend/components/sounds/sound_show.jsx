@@ -42,15 +42,19 @@ export default class SoundShow extends Component {
 
     return (
       <div className="ss-main">
-        <div className="ss-info">
-          <img src={this.props.sound.photoUrl} id="si-image" />
+        <div className="ss-banner">
+          <br />
+          <PlayContainer soundId={this.props.sound.id} />
+
           <span className="ss-title">{this.props.sound.title}</span>
           <br />
+
           <span className="ss-tag">{this.props.sound.tag}</span>
           <br />
           <span className="ss-body">{this.props.sound.body}</span>
-        <PlayContainer soundId={this.props.sound.id} />
-          <div className="si-buttons">{buttons}</div>
+
+            <div className="si-buttons">{buttons}</div>
+          <img src={this.props.sound.photoUrl} className="si-image" />
         </div>
       </div>
     );

@@ -34,6 +34,7 @@ h1 {
 button {
  font-family: Interstate, "Lucida Grande", Arial, sans-serif;
  cursor: pointer;
+      
 }
 
 .errors-words {
@@ -54,4 +55,8 @@ link:hover {
 img {
  height: 150px;
  width: 150px
+}
+
+audio {
+  display: none;
 }
