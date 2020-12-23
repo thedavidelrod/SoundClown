@@ -174,8 +174,8 @@ export default class SoundPlayer extends Component {
               {formatSoundTime(this.state.elapsedTime)}
             </p>
             <input
-              id="scroll-bar"
-              className="scroll-bar"
+              id="scrollbar"
+              className="scrollbar"
               type="range"
               min="0"
               max={this.state.duration}
