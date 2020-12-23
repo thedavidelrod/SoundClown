@@ -6,7 +6,7 @@ import {withRouter} from 'react-router-dom'
 const mSTP = (state) => {
     
     return{
-    errors: state.errors.tracks,
+    errors: state.errors.sounds,
     sound: {
         uploader_id: state.session.id,
         title: '',

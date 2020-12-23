@@ -20,9 +20,10 @@ export default class SoundPlayer extends Component {
     this.handleSkip = this.handleSkip.bind(this);
     this.handleTimeElapsed = this.handleTimeElapsed.bind(this);
     this.handleNextSound = this.handleNextSound.bind(this);
-    this.handleSkip = this.handleSkip.bind(this);
+    this.handleNext = this.handleNext.bind(this);
     this.handleVolume = this.handleVolume.bind(this);
     this.handleMute = this.handleMute.bind(this);
+
   }
 
   componentDidMount() {
@@ -89,6 +90,7 @@ export default class SoundPlayer extends Component {
   }
 
   handleNext() {
+    debugger
     const player = document.getElementById("audio");
     this.props.receivePreviousSound(this.props.currentSound.id);
     this.props.receiveCurrentSound(this.props.queue.shift());

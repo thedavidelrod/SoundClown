@@ -41,7 +41,7 @@ const soundPlayerReducer = (state = defaultState, action) => {
 
       const sounds = Object.values(action.sounds);
       for (let i = 0; i < sounds.length - 1; i++) {
-        let ranNum = Math.floor(Math.random() * (i + 1));
+        let ranNum = Math.floor(Math.random() * (sounds.length));
         [sounds[i], sounds[ranNum]] = [sounds[ranNum], sounds[i]];
       }
       sounds.forEach((sound) => {
