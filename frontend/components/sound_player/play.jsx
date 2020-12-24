@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class Play extends Component {
@@ -9,9 +10,9 @@ export default class Play extends Component {
 
   handlePlay() {
         const player = document.getElementById("audio");
-      if (this.props.playing && this.props.currentSoundId === this.props.soundId) {
+      if (this.props.playing && this.props.currentSound.id === this.props.soundId) {
           this.props.pauseSound()
-          player.pause
+          player.pause();
       } else {
           this.props.receiveCurrentSound(this.props.soundId)
           this.props.receivePreviousSound(this.props.soundId)
@@ -24,16 +25,15 @@ export default class Play extends Component {
 
   render() {
     return (
-      <div>
+      
         <button className="play-button" onClick={this.handlePlay}>
-          {this.props.playing &&
-          this.props.currentSound.id === this.props.soundId ? (
+          {this.props.playing && this.props.currentSound.id === this.props.soundId ? 
             <FontAwesomeIcon icon="pause" />
-          ) : (
+           : 
             <FontAwesomeIcon icon="play" />
-          )}
+          }
         </button>
-      </div>
+   
     );
   }
 }

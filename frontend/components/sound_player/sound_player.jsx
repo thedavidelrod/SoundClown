@@ -90,7 +90,7 @@ export default class SoundPlayer extends Component {
   }
 
   handleNext() {
-    debugger
+    
     const player = document.getElementById("audio");
     this.props.receivePreviousSound(this.props.currentSound.id);
     this.props.receiveCurrentSound(this.props.queue.shift());
