@@ -8,4 +8,5 @@ class Comment < ApplicationRecord
   belongs_to :sound,
   foreign_key: :sound_id,
   class_name: :Sound
+  
 end #! end of code
