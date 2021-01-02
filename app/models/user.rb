@@ -17,6 +17,11 @@ class User < ApplicationRecord
            class_name: :Sound,
            dependent: :destroy
 
+  has_many :comments,
+         foreign_key: :author_id,
+         class_name: :Comment,
+         dependent: :destroy
+
   validates :email, :password_digest, :session_token, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :email, uniqueness: true

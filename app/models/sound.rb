@@ -9,5 +9,12 @@ belongs_to :user,
   foreign_key: :uploader_id,
   class_name: :User
 
+  has_many :comments,
+  foreign_key: :sound_id,
+  class_name: :Comment,
+  dependent: :destroy
+
+
+
 
 end #! end of code
