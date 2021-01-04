@@ -4,7 +4,7 @@ import {
   DELETE_COMMENT,
 } from "../actions/comment_actions";
 
-const commentsReducer = (oldState = {}, action) => {
+const CommentsReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
 
   switch (action.type) {
@@ -23,4 +23,4 @@ const commentsReducer = (oldState = {}, action) => {
   }
 };
 
-export default commentsReducer;
+export default CommentsReducer;
