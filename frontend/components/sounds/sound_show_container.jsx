@@ -12,7 +12,7 @@ const mSTP = (state, ownProps) => ({
   sound: state.entities.sounds[ownProps.match.params.id],
   errors: state.errors.sounds,
   user: state.session.id,
-  comments: state.entities.songComments,
+  comments: state.entities.comments,
 });
 
 const mDTP = (dispatch) => ({

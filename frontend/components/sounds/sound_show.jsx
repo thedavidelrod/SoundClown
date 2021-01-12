@@ -44,7 +44,7 @@ export default class SoundShow extends Component {
     this.props.createComment(comment);
   }
 
-  render() {
+  render() {  
     if (!this.props.sound) {
       return null; //fixes weird undefined issue
     }
