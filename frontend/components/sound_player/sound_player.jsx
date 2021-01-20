@@ -24,7 +24,7 @@ export default class SoundPlayer extends Component {
     this.handleVolume = this.handleVolume.bind(this);
     this.handleMute = this.handleMute.bind(this);
 
-  }
+  };
 
   componentDidMount() {
     this.props.fetchSounds();

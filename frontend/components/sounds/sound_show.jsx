@@ -13,10 +13,13 @@ export default class SoundShow extends Component {
     this.editSound = this.editSound.bind(this);
     this.update = this.update.bind(this);
     this.handleComment = this.handleComment.bind(this);
+
   }
 
   componentDidMount() {
     this.props.fetchSound(this.props.match.params.id);
+    this.props.fetchComments();
+
   }
   update(field) {
     return (e) => this.setState({ [field]: e.target.value });
@@ -36,15 +39,15 @@ export default class SoundShow extends Component {
     e.preventDefault();
 
     const comment = {
-      song_id: this.props.song.id,
-      author_id: this.props.currentUser.id,
+      sound_id: this.props.sound.id,
+      author_id: this.props.user,
       body: this.state.commentBody,
     };
     this.setState({ comment: "" });
     this.props.createComment(comment);
   }
-
-  render() {  
+  
+  render() {
     if (!this.props.sound) {
       return null; //fixes weird undefined issue
     }
@@ -63,7 +66,7 @@ export default class SoundShow extends Component {
         </div>
       );
     }
-
+    
     return (
       <div className="ss-main">
         <div className="ss-banner">
@@ -89,6 +92,7 @@ export default class SoundShow extends Component {
                 onChange={this.update("commentBody")}
                 placeholder="Write a comment"
               />
+              <button>Submit a Comment</button>
             </form>
           </div>
         </div>

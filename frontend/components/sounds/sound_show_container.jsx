@@ -7,12 +7,17 @@ import {
   createComment,
   deleteComment,
 } from "../../actions/comment_actions";
+import { fetchUsers } from "../../actions/user_actions";
+
 
 const mSTP = (state, ownProps) => ({
   sound: state.entities.sounds[ownProps.match.params.id],
   errors: state.errors.sounds,
   user: state.session.id,
+  users: state.entities.users,
   comments: state.entities.comments,
+  currentUser: state.entities.users[state.session.user],
+
 });
 
 const mDTP = (dispatch) => ({
@@ -22,7 +27,8 @@ const mDTP = (dispatch) => ({
   updateSound: (sound, id) => dispatch(updateSound(sound, id)),
   fetchComments: () => dispatch(fetchComments()),
   createComment: (comment) => dispatch(createComment(comment)),
-  deleteComment: (id) => dispatch(deleteComment(id)),
+  deleteComment: (commentId) => dispatch(deleteComment(commentId)),
+  fetchUsers: () => dispatch(fetchUsers()),
 });
 
 export default withRouter(connect(mSTP, mDTP)(SoundShow));

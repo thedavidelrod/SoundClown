@@ -10,12 +10,14 @@ import {
   receiveRandomSounds,
 } from "../../actions/sound_player_actions";
 
+import {fetchComments, createComment, deleteComment} from '../../actions/comment_actions'
+
 const mSTP = (state) => ({
   currentSound: state.entities.sounds[state.ui.soundPlayer.currentSoundId],
   sounds: state.entities.sounds,
   playing: state.ui.soundPlayer.playing,
   played: state.ui.soundPlayer.played,
-  queue: state.ui.soundPlayer.queue
+  queue: state.ui.soundPlayer.queue,
 });
 
 const mDTP = (dispatch) => ({
@@ -26,6 +28,7 @@ const mDTP = (dispatch) => ({
   playSound: () => dispatch(playSound()),
   pauseSound: () => dispatch(pauseSound()),
   receiveRandomSounds: (sounds) => dispatch(receiveRandomSounds(sounds)),
+  
 });
 
 export default connect(mSTP, mDTP)(SoundPlayer);
