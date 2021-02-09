@@ -37,7 +37,6 @@ const soundPlayerReducer = (state = defaultState, action) => {
       newState.playing = false;
       return newState
     case RECEIVE_RANDOM_SOUNDS:
-      console.log(action.sounds)
 
       const sounds = Object.values(action.sounds);
       for (let i = 0; i < sounds.length - 1; i++) {

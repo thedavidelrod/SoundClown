@@ -17,5 +17,7 @@ export const updateUser = (userData, id) => {
     method: "PATCH",
     url: `/api/users/${id}`,
     data: { userData },
+    contentType: false, 
+    processData: false
   });
 };

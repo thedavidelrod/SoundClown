@@ -39,4 +39,11 @@ export const deleteSound = (id) => (
     })
 );
 
+export const userSounds = (userId) => {
+  return $.ajax({
+    url: `/api/users/${userId}/sounds`,
+    method: "GET",
+  });
+};
+
 

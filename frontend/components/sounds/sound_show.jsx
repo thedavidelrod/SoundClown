@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import PlayContainer from "../sound_player/play_container";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 export default class SoundShow extends Component {
   constructor(props) {
     super(props);
@@ -13,13 +15,11 @@ export default class SoundShow extends Component {
     this.editSound = this.editSound.bind(this);
     this.update = this.update.bind(this);
     this.handleComment = this.handleComment.bind(this);
-
   }
 
   componentDidMount() {
     this.props.fetchSound(this.props.match.params.id);
     this.props.fetchComments();
-
   }
   update(field) {
     return (e) => this.setState({ [field]: e.target.value });
@@ -46,12 +46,84 @@ export default class SoundShow extends Component {
     this.setState({ comment: "" });
     this.props.createComment(comment);
   }
-  
+
+  allComments() {
+    let comments = Object.values(this.props.comments);
+    let filtered = comments.filter((comment) => comments.sound_id === this.props.sound.id
+    );
+    let allComments = filtered.map((comment, i) => {
+      return (
+        <div
+          key={i}
+          className="comment-main"
+          onMouseOver={() =>
+            this.setState({
+              authorID: comments.author_id,
+              commentID: comments.id,
+            })
+          }
+          onMouseLeave={() =>
+            this.setState({ authorID: null, commentID: null })
+          }
+        >
+          <div className="comment-content">
+            <div className="comment-header">
+              {this.props.currentUser.id === this.props.comments.author_id ? (
+                "You"
+              ) : (
+                <Link
+                  className="comment-other-author"
+                  to={`/users/${this.props.comments.author_id}`}
+                >
+                  {this.props.users[this.props.comments.author_id].email}
+                </Link>
+              )}
+            </div>
+            <div className="comment-body">
+              <span className="comment-span">{comments.body}</span>
+              {this.props.currentUser.id === this.state.authorID &&
+              comments.id === this.state.commentID ? (
+                <span className="delete-span">
+                  <button
+                    className="comment-delete-btn"
+                    onClick={() => this.props.deleteComment(comments.id)}
+                  >
+                    <FontAwesomeIcon icon="dumpster-fire" />
+                  </button>
+                </span>
+              ) : null}
+            </div>
+          </div>
+        </div>
+      );  
+    });
+    return allComments;
+  }
+
+  commentIndex() {
+    const allComments = this.allComments();
+
+    const index =
+      Object.values(this.props.comments).length > 0 ? (
+        <div className="comment-index-wrapper">
+          <div className="comment-index-header">
+            <FontAwesomeIcon icon="comment" />
+            &nbsp;
+            {allComments.length}&nbsp;
+            {allComments.length === 1 ? "comment" : "comments"}
+          </div>
+          <div className="comment-list">{allComments}</div>
+        </div>
+      ) : null;
+
+    return index;
+  }
+
   render() {
     if (!this.props.sound) {
       return null; //fixes weird undefined issue
     }
-
+    // debugger;
     let buttons;
 
     if (this.props.sound.uploader_id === this.props.user) {
@@ -66,7 +138,7 @@ export default class SoundShow extends Component {
         </div>
       );
     }
-    
+
     return (
       <div className="ss-main">
         <div className="ss-banner">
@@ -94,6 +166,7 @@ export default class SoundShow extends Component {
               />
               <button>Submit a Comment</button>
             </form>
+            {this.commentIndex()}
           </div>
         </div>
       </div>

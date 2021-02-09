@@ -62,4 +62,11 @@ export const deleteSound = (soundId) => (dispatch) => {
     (sound) => dispatch(removeSound(sound)),
     (err) => dispatch(err.responseJSON)
   );
+}
+
+export const fetchUserSounds = (userId) => (dispatch) => {
+  return SoundAPI.userSounds(userId).then(
+    (sounds) => dispatch(receiveSounds(sounds)),
+    (err) => dispatch(receiveSoundErrors(err.responseJSON))
+  )
 };
