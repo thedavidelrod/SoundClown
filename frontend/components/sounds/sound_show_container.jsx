@@ -16,7 +16,7 @@ const mSTP = (state, ownProps) => ({
   user: state.session.id,
   users: state.entities.users,
   comments: state.entities.comments,
-  currentUser: state.entities.users[state.session.user],
+  currentUser: state.entities.users[state.session.id],
 
 });
 

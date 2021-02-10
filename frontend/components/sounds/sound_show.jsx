@@ -15,6 +15,9 @@ export default class SoundShow extends Component {
     this.editSound = this.editSound.bind(this);
     this.update = this.update.bind(this);
     this.handleComment = this.handleComment.bind(this);
+    this.commentIndex = this.commentIndex.bind(this);
+    this.allComments = this.allComments.bind(this);
+
   }
 
   componentDidMount() {
@@ -49,7 +52,7 @@ export default class SoundShow extends Component {
 
   allComments() {
     let comments = Object.values(this.props.comments);
-    let filtered = comments.filter((comment) => comments.sound_id === this.props.sound.id
+    let filtered = comments.filter((comment) => comment.sound_id === this.props.sound.id
     );
     let allComments = filtered.map((comment, i) => {
       return (
@@ -58,8 +61,8 @@ export default class SoundShow extends Component {
           className="comment-main"
           onMouseOver={() =>
             this.setState({
-              authorID: comments.author_id,
-              commentID: comments.id,
+              authorID: comment.author_id,
+              commentID: comment.id,
             })
           }
           onMouseLeave={() =>
@@ -68,25 +71,25 @@ export default class SoundShow extends Component {
         >
           <div className="comment-content">
             <div className="comment-header">
-              {this.props.currentUser.id === this.props.comments.author_id ? (
+              {this.props.currentUser.id === comment.author_id ? (
                 "You"
               ) : (
                 <Link
                   className="comment-other-author"
-                  to={`/users/${this.props.comments.author_id}`}
+                  to={`/users/${comment.author_id}`}
                 >
-                  {this.props.users[this.props.comments.author_id].email}
+                  {this.props.users[comment.author_id].email}
                 </Link>
               )}
             </div>
             <div className="comment-body">
-              <span className="comment-span">{comments.body}</span>
+              <span className="comment-span">{comment.body}</span>
               {this.props.currentUser.id === this.state.authorID &&
               comments.id === this.state.commentID ? (
                 <span className="delete-span">
                   <button
                     className="comment-delete-btn"
-                    onClick={() => this.props.deleteComment(comments.id)}
+                    onClick={() => this.props.deleteComment(comment.id)}
                   >
                     <FontAwesomeIcon icon="dumpster-fire" />
                   </button>
@@ -123,7 +126,7 @@ export default class SoundShow extends Component {
     if (!this.props.sound) {
       return null; //fixes weird undefined issue
     }
-    // debugger;
+     //debugger;
     let buttons;
 
     if (this.props.sound.uploader_id === this.props.user) {
