@@ -167,7 +167,7 @@ export default class SoundShow extends Component {
                 onChange={this.update("commentBody")}
                 placeholder="Write a comment"
               />
-              <button>Submit a Comment</button>
+              {/* < button>Submit a Comment</button> */}
             </form>
             {this.commentIndex()}
           </div>
