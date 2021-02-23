@@ -5,6 +5,7 @@ class SignupForm extends React.Component {
     super(props);
     this.state = {
       email: "",
+      username: "",
       password: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,7 +17,6 @@ class SignupForm extends React.Component {
         [field]: e.currentTarget.value,
       });
   }
-
 
   componentWillUnmount() {
     this.props.clearErrors();
@@ -31,7 +31,7 @@ class SignupForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul className='errors-words'>
+      <ul className="errors-words">
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>{error}</li>
         ))}
@@ -45,12 +45,15 @@ class SignupForm extends React.Component {
     };
   }
 
+
+
+
   render() {
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <br />
-          <h1 className='log-in'>Enter TimbreHaar</h1>
+          <h1 className="log-in">Enter TimbreHaar</h1>
 
           <div className="login-form">
             <br />
@@ -60,6 +63,15 @@ class SignupForm extends React.Component {
               placeholder="Enter your Email address"
               value={this.state.email}
               onChange={this.update("email")}
+              className="login-input"
+            />
+            <br />
+            <input
+              className="login-input"
+              type="username"
+              placeholder="Pick a Username"
+              value={this.state.username}
+              onChange={this.update("username")}
               className="login-input"
             />
             <br />
@@ -79,9 +91,9 @@ class SignupForm extends React.Component {
               type="submit"
               value={this.props.formType}
             />
-            
+
             {this.renderErrors()}
-            <span className="fine-print-signupx">
+            <span className="fine-print-signup">
               <p>
                 We may use your email and devices for updates and tips on
                 Timbrehaar's products and services, and for activities

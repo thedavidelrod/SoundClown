@@ -11,7 +11,7 @@ require "open-uri"
 User.destroy_all
 Sound.destroy_all
 
-guestUser = User.create!({email: 'test@user.com', password: 'testuser'})
+guestUser = User.create!({email: 'test@user.com', username: 'testuser', password: 'testuser'})
 
 sound1 = Sound.create!(uploader_id: guestUser.id, title:"Mammoth Life", tag: "Dreampop", body:"Baycataion from Mammoth Life")
 sound1_photo = open("https://app-timbrehaar-seed.s3-us-west-2.amazonaws.com/Baycation+Cover.jpg")

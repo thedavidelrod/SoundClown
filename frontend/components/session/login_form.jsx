@@ -4,7 +4,7 @@ export default class LogInForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
+      username: "",
       password: "",
     };
     this.demoLogin = this.demoLogin.bind(this);
@@ -39,7 +39,7 @@ export default class LogInForm extends Component {
 
   demoLogin(e) {
     e.preventDefault();
-    const user = { email: "test@user.com", password: "testuser" };
+    const user = { username: "testuser", password: "testuser" };
     this.props.login(user).then(() => this.props.closeModal());
   }
 
@@ -52,14 +52,23 @@ export default class LogInForm extends Component {
           <h1 className="log-in">Log In</h1>
           <div className="login-form">
             <br />
-
+            <input
+              className="login-input"
+              type="username"
+              placeholder="Enter Your Username"
+              value={this.state.username}
+              onChange={this.update("username")}
+              className="login-input"
+            />
+            <br />  
+{/* 
             <input
               placeholder="Your email address"
               type="text"
               value={this.state.email}
               onChange={this.update("email")}
               className="login-input"
-            />
+            /> */}
 
             <br />
 
@@ -77,9 +86,8 @@ export default class LogInForm extends Component {
               className="session-submit"
               type="submit"
               value={this.props.formType}
-
             />
-            
+
             <button className="demo-log" onClick={this.demoLogin}>
               Demo Login
             </button>

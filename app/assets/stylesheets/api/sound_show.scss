@@ -32,6 +32,11 @@ min-width: 1240px;
       left: -225px;
     position: relative; 
 }
+.ss-words {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
 
 .si-words {
   position: relative;
@@ -50,22 +55,21 @@ min-width: 1240px;
   font-size: 12px;
 }
 
-.ss-title {
-      align-self: flex-start;
-    padding-top: 8%;
-    color: white;
-    text-shadow: 1px 1px whitesmoke;
-    font-size: 28.8px;
-}
-
-.ss-tag {
-  position: relative;
-    left: 350px;
-    top: -62px;
-    font-size: 12px;
+.ss-main .play-button 
+{
+    display: flex;
+    justify-content: space-around;
+    border-radius: 50%;
+    border: 1px solid #f50;
+    background: #f50;
     color: whitesmoke;
-    text-shadow: 1px 1px whitesmoke;
-}
+    font-size: 50px;
+    position: relative;
+    top: -99px;
+    padding: 1% 1% 1% 1%;
+}   
+
+
 .comments-form-wrapper {
   display: flex;
   align-items: center;

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PlayContainer from "../sound_player/play_container";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 export default class SoundShow extends Component {
   constructor(props) {
@@ -78,7 +79,7 @@ export default class SoundShow extends Component {
                   className="comment-other-author"
                   to={`/users/${comment.author_id}`}
                 >
-                  {this.props.users[comment.author_id].email}
+                  {this.props.users[comment.author_id].username}
                 </Link>
               )}
             </div>
@@ -145,19 +146,20 @@ export default class SoundShow extends Component {
     return (
       <div className="ss-main">
         <div className="ss-banner">
-          <br />
+          <br />  
           <PlayContainer soundId={this.props.sound.id} />
+          <div className='ss-words'>
+            <span className="ss-title">{this.props.sound.title}</span>
+            <br />
 
-          <span className="ss-title">{this.props.sound.title}</span>
-          <br />
-
-          <span className="ss-tag">{this.props.sound.tag}</span>
-          <br />
-          <span className="ss-body">{this.props.sound.body}</span>
-
-          <div className="si-buttons">{buttons}</div>
+            <span className="ss-tag">{this.props.sound.tag}</span>
+            <br />
+            <span className="ss-body">{this.props.sound.body}</span>
+          </div>
           <img src={this.props.sound.photoUrl} className="si-image" />
         </div>
+        <div className="si-buttons">{buttons}</div>
+
         <div className="comment-form-parent">
           <div className="comment-form-wrapper">
             <form className="comment-form" onSubmit={this.handleComment}>

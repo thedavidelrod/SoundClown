@@ -1,4 +1,4 @@
-json.extract! user, :id, :email
+json.extract! user, :id, :email, :username
 json.soundIds user.sounds.ids 
 
 

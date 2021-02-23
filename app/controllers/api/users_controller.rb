@@ -33,7 +33,7 @@ end
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :photo)
+    params.require(:user).permit(:email, :password, :username, :photo)
   end
 
 end#! end of code
