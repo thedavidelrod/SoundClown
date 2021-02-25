@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 export default class LogInForm extends Component {
   constructor(props) {
     super(props);
@@ -14,12 +14,11 @@ export default class LogInForm extends Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
-    
   }
 
   renderErrors() {
     return (
-      <ul className='errors-words'>
+      <ul className="errors-words">
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>{error}</li>
         ))}
@@ -40,10 +39,11 @@ export default class LogInForm extends Component {
   demoLogin(e) {
     e.preventDefault();
     const user = { username: "testuser", password: "testuser" };
-    this.props.login(user).then(() => this.props.closeModal());
+    this.props.processForm(user).then(() => this.props.closeModal());
   }
 
   render() {
+        
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
@@ -60,15 +60,7 @@ export default class LogInForm extends Component {
               onChange={this.update("username")}
               className="login-input"
             />
-            <br />  
-{/* 
-            <input
-              placeholder="Your email address"
-              type="text"
-              value={this.state.email}
-              onChange={this.update("email")}
-              className="login-input"
-            /> */}
+            <br />
 
             <br />
 

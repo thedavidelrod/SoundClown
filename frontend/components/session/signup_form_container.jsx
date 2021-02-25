@@ -11,11 +11,13 @@ const mapStateToProps = (state) => {
     user: state.entities.users[state.session.id],
     errors: state.errors.session,
     formType: "signup",
+    
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    login: (user) => dispatch(login(user)),
     processForm: (user) => dispatch(signup(user)),
     //receiveError: (error) => dispatch(receiveError(error)),
     clearErrors: () => dispatch(clearErrors()),
