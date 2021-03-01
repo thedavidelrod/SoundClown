@@ -5,20 +5,22 @@ import PlayContainer from "../sound_player/play_container";
 export default class UserShow extends Component {
   constructor(props) {
     super(props);
+    this.soundList = this.soundList.bind(this);
+    
   }
 
-  // componentDidMount(e) {
-  //     e.preventDefault()
-  //     this.props.fetchUserSounds(this.props.match.params.id);
-  //     this.props.fetchUser(this.props.match.params.id);
-  // }
+  componentDidMount(e) {
+      // e.preventDefault()
+      this.props.fetchUserSounds(this.props.match.params.id);
+      this.props.fetchUser(this.props.match.params.id);
+  }
 
-  // componentDidUpdate(prevProps) {
-  //     if (this.props.location.pathname !== prevProps.location.pathname) {
-  //         this.props.fetchUserSounds(this.props.match.params.id)
-  //         this.props.fetchUser(this.props.match.params.id)
-  //     }
-  // }
+  componentDidUpdate(prevProps) {
+      if (this.props.location.pathname !== prevProps.location.pathname) {
+          this.props.fetchUserSounds(this.props.match.params.id)
+          this.props.fetchUser(this.props.match.params.id)
+      }
+  }
 
   soundList() {
     const soundListFilter = Object.values(this.props.sounds).filter( sound => sound.uploader_id === this.props.user_id);
@@ -42,19 +44,18 @@ export default class UserShow extends Component {
                 )}
               </Link>
             </div>
+            
           </div>
         );
     }) 
   }
 
   render() {
-      // debugger
-    if (!this.props.user || !this.props.userSongs) {
+    if (!this.props.user || !this.props.userSounds) {
       return null;
     }
-    const { user, currentUser } = this.props;
     return <div>
-      
+      {this.soundList()}
     </div>;
   }
 }

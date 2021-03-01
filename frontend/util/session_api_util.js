@@ -6,15 +6,16 @@ export const login = (user) =>
 
   });
 
-export const signup = (user) =>
-  $.ajax({
+export const signup = (user) => {
+    return $.ajax({
     method: "POST",
     url: "/api/users",
     processData: false,
     contentType: false,
-    data: { user },
-    dataType: "json",
-  });
+    data: user,
+     dataType: "json", 
+  })
+};
 
 export const logout = () =>
   $.ajax({

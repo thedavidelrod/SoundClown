@@ -3,7 +3,7 @@ import Root from "./components/root";
 import React from "react";
 import ReactDOM from "react-dom";
 import * as SessionActions from "./actions/session_actions";
-
+import * as SessionAPI from "./util/session_api_util";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   fab,
@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.login = SessionActions.login;
   window.logout = SessionActions.logout;
   window.signup = SessionActions.signup;
+  window.createUser = SessionAPI.signup;
   //*end test stuff
 
   let store;

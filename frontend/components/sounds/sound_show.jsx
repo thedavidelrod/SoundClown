@@ -79,7 +79,7 @@ export default class SoundShow extends Component {
                   className="comment-other-author"
                   to={`/users/${comment.author_id}`}
                 >
-                  {this.props.users[comment.author_id].username}
+                    {this.props.comments[comment.id].author.username}
                 </Link>
               )}
             </div>
@@ -124,10 +124,10 @@ export default class SoundShow extends Component {
   }
 
   render() {
+    // debugger
     if (!this.props.sound) {
       return null; //fixes weird undefined issue
     }
-     //debugger;
     let buttons;
 
     if (this.props.sound.uploader_id === this.props.user) {
@@ -144,6 +144,7 @@ export default class SoundShow extends Component {
     }
 
     return (
+      
       <div className="ss-main">
         <div className="ss-banner">
           <br />  

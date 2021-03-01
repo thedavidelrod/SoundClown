@@ -27,13 +27,17 @@ class SignupForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
+    
     formData.append("user[username]", this.state.username);
     formData.append("user[email]", this.state.email);
     formData.append("user[password]", this.state.password);
     formData.append("user[photo]", this.state.photo);
+    // formData.append("user[photoUrl]", this.state.photoUrl)
     const user = Object.assign({}, this.state);
-    this.props.processForm({user: user});
-        console.log(user);
+          //  this.props.processForm({user: {  user }});
+     this.props.processForm(formData);
+
+      console.log(user);
 
     // this.props.closeModal();
   }
@@ -49,6 +53,13 @@ class SignupForm extends React.Component {
     }
   }
 
+  // handlePhoto(e) {
+  //   e.preventDefault();
+  //   this.setState({
+  //     photo: e.target.files[0],
+  //   });
+  // }
+  
   renderErrors() {
     return (
       <ul className="errors-words">
@@ -66,7 +77,6 @@ class SignupForm extends React.Component {
   }
 
   render() {
-    
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
@@ -93,7 +103,6 @@ class SignupForm extends React.Component {
               className="login-input"
             />
             <br />
-
             <input
               className="login-input"
               type="password"
@@ -103,19 +112,17 @@ class SignupForm extends React.Component {
               className="login-input"
             />
             <br />
+            Upload A Profile Picture
             <input
               className="login-input"
               type="file"
-              placeholder="Upload A Profile Picture"
               onChange={this.handlePhoto}
             ></input>
-
             <input
               className="session-submit"
               type="submit"
               value={this.props.formType}
             />
-
             {this.renderErrors()}
             <span className="fine-print-signup">
               <p>

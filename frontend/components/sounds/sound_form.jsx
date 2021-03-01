@@ -22,7 +22,6 @@ export default class SoundForm extends Component {
     this.props
       .action(formData, this.props.sound.id)
       .then(() => this.props.history.push("/sounds"));
-      console.log(this.props.sound)
   }
 
   update(field) {
