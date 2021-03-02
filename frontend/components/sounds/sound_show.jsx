@@ -18,7 +18,6 @@ export default class SoundShow extends Component {
     this.handleComment = this.handleComment.bind(this);
     this.commentIndex = this.commentIndex.bind(this);
     this.allComments = this.allComments.bind(this);
-
   }
 
   componentDidMount() {
@@ -53,7 +52,8 @@ export default class SoundShow extends Component {
 
   allComments() {
     let comments = Object.values(this.props.comments);
-    let filtered = comments.filter((comment) => comment.sound_id === this.props.sound.id
+    let filtered = comments.filter(
+      (comment) => comment.sound_id === this.props.sound.id
     );
     let allComments = filtered.map((comment, i) => {
       return (
@@ -79,7 +79,7 @@ export default class SoundShow extends Component {
                   className="comment-other-author"
                   to={`/users/${comment.author_id}`}
                 >
-                    {this.props.comments[comment.id].author.username}
+                  {this.props.comments[comment.id].author.username}
                 </Link>
               )}
             </div>
@@ -99,7 +99,7 @@ export default class SoundShow extends Component {
             </div>
           </div>
         </div>
-      );  
+      );
     });
     return allComments;
   }
@@ -124,7 +124,6 @@ export default class SoundShow extends Component {
   }
 
   render() {
-    // debugger
     if (!this.props.sound) {
       return null; //fixes weird undefined issue
     }
@@ -144,12 +143,11 @@ export default class SoundShow extends Component {
     }
 
     return (
-      
       <div className="ss-main">
         <div className="ss-banner">
-          <br />  
+          <br />
           <PlayContainer soundId={this.props.sound.id} />
-          <div className='ss-words'>
+          <div className="ss-words">
             <span className="ss-title">{this.props.sound.title}</span>
             <br />
 

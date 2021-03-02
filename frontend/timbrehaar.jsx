@@ -4,6 +4,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import * as SessionActions from "./actions/session_actions";
 import * as SessionAPI from "./util/session_api_util";
+
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   fab,
@@ -32,6 +33,7 @@ import {
   faAngleDown,
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
+import { create } from "wavesurfer.js";
 
 library.add(
   fab,

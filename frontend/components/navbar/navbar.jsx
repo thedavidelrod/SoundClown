@@ -5,6 +5,7 @@ export default class Navbar extends Component {
     super(props);
     this.home = this.home.bind(this)
     this.stream = this.stream.bind(this)
+    this.library = this.library.bind(this)
   }
   
 home() {
@@ -13,6 +14,10 @@ home() {
 
 stream() {
   this.props.history.push('/sounds')
+}
+
+library() {
+  this.props.history.push(`/users/${this.props.user.id}`)
 }
 
   render() {
@@ -56,7 +61,7 @@ stream() {
           <div className="logo-left"> </div>
           <button className="home-button" onClick={this.home}> Home</button>
           <button className="stream-button" onClick={this.stream}>Stream</button>
-          <button className="library-button">Library</button>
+          <button className="library-button" onClick={this.library}> Library</button>
         </div>
 
         <div className="nav-right">{buttons}</div>
