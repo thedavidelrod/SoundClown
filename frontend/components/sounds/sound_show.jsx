@@ -70,6 +70,19 @@ export default class SoundShow extends Component {
             this.setState({ authorID: null, commentID: null })
           }
         >
+          <div className="comment-photo-div">
+            {" "}
+            <Link to={`/users/${comments.author_id}`}>
+              {this.props.comments[comment.id].photoUrl ? (
+                <img
+                  className="comment-photo"
+                  src={this.props.comments[comment.id].photoUrl}
+                />
+              ) : (
+                <div className="comment-photo comment-photo-empty">&nbsp;</div>
+              )}
+            </Link>
+          </div>
           <div className="comment-content">
             <div className="comment-header">
               {this.props.currentUser.id === comment.author_id ? (
@@ -128,7 +141,7 @@ export default class SoundShow extends Component {
       return null; //fixes weird undefined issue
     }
     let buttons;
-
+        // debugger;
     if (this.props.sound.uploader_id === this.props.user) {
       buttons = (
         <div className="ss-edit-buttons">

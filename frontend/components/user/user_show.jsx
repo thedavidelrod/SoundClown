@@ -105,7 +105,6 @@ export default class UserShow extends Component {
     }
     const { user } = this.props;
 
-      // debugger;
     return (
       <div>
         <div className="profile-main">

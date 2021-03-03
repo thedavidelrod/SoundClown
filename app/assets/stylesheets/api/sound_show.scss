@@ -55,15 +55,16 @@
 }
 
 .ss-main .play-button {
-  display: flex;
-  justify-content: space-around;
-  border-radius: 50%;
-  border: 1px solid #f50;
-  background: #f50;
-  color: whitesmoke;
-  font-size: 50px;
-  position: relative;
-  padding: 1% 1% 1% 1%;
+  width: 100px;
+  height: 100px;
+  color: white;
+  border: none;
+  text-align: center;
+  font-size: 28px;
+  border-radius: 100px;
+  outline: none;
+  background: rgb(167,75,0);
+  background: linear-gradient(45deg, rgba(167,75,0,1) 16%, rgba(196,79,0,1) 35%, rgba(221,90,0,1) 60%, rgba(255,85,0,1) 95%); 
 }
 
 .comments-form-wrapper {
