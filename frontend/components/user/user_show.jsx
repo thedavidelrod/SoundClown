@@ -7,20 +7,47 @@ export default class UserShow extends Component {
   constructor(props) {
     super(props);
     this.soundList = this.soundList.bind(this);
+    this.handleLike = this.handleLike.bind(this);
+    this.userLikesSounds = this.userLikesSounds.bind(this);
   }
 
   componentDidMount(e) {
     this.props.fetchUserSounds(this.props.match.params.id);
     this.props.fetchUser(this.props.match.params.id);
+    this.props.fetchUserLikes(this.props.match.params.userId);
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.location.pathname !== prevProps.location.pathname) {
+      scrollTo(0, 0);
       this.props.fetchUserSounds(this.props.match.params.id);
       this.props.fetchUser(this.props.match.params.id);
     }
   }
 
+  userLikesSounds() {
+    let soundIds = [];
+    Object.values(this.props.userLikes).forEach((like) => {
+      soundIds.push(like.sound_id);
+    });
+    return soundIds;
+  }
+
+  handleLike(soundId) {
+    const { currentUser, userLikes } = this.props;
+    if (!this.userLikesSounds().includes(soundId)) {
+      let like = { user_id: currentUser.id, sound_id: soundId };
+      this.props.createLike(like);
+    } else {
+      let likeId = null;
+      Object.values(userLikes).forEach((like) => {
+        if (like.sound_id === soundId) {
+          likeId = like.id;
+        }
+      });
+      this.props.deleteLike(likeId);
+    }
+  }
   soundList() {
     const { sounds } = this.props;
 
@@ -71,13 +98,12 @@ export default class UserShow extends Component {
                 </div>
               </div>
             </div>
-
             {/* <WaveformContainer index={i} sound={sound} /> */}
-            {/* <div className="profile-song-footer">
-              {this.userLikesSongs().includes(song.id) ? (
+            <div className="profile-song-footer">
+              {this.userLikesSounds().includes(sound.id) ? (
                 <button
                   className="profile-song-like liked"
-                  onClick={() => this.handleLike(song.id)}
+                  onClick={() => this.handleLike(sound.id)}
                 >
                   <FontAwesomeIcon className="like-icon" icon="heart" />
                   Unlike
@@ -85,16 +111,16 @@ export default class UserShow extends Component {
               ) : (
                 <button
                   className="profile-song-like"
-                  onClick={() => this.handleLike(song.id)}
+                  onClick={() => this.handleLike(sound.id)}
                 >
                   <FontAwesomeIcon className="like-icon" icon="heart" />
                   Like
                 </button>
-              )} */}
-            {/* </div> */}
+              )}
+            </div>
           </div>
         </div>
-      );
+        );
     });
     return soundList;
   }
@@ -104,7 +130,7 @@ export default class UserShow extends Component {
       return null;
     }
     const { user } = this.props;
-
+// debugger
     return (
       <div>
         <div className="profile-main">
@@ -143,7 +169,7 @@ export default class UserShow extends Component {
                     </span>
                   </div>
                   <div className="profile-bio">
-                    <span className="bio-span">{user.description}</span>
+                    <span className="bio-span">{user.bio}</span>
                   </div>
                 </div>
               </div>

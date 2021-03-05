@@ -5,7 +5,7 @@ belongs_to :user,
   foreign_key: :user_id,
   class_name: :User
 
-belongs_to :song,
+belongs_to :sound,
   foreign_key: :sound_id,
   class_name: :Sound
 end

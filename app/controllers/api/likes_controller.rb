@@ -23,6 +23,6 @@ end
 private
 
 def like_params
-  params.require(:like).permit(:user_id, :song_id)
+  params.require(:like).permit(:user_id, :sound_id)
 end
 end

@@ -4,10 +4,11 @@ import {fetchSounds, fetchSound, deleteSound, updateSound} from '../../actions/s
 import {withRouter} from 'react-router-dom'
 import {
   fetchComments,
-  createComment,
+  createComment,  
   deleteComment,
 } from "../../actions/comment_actions";
 import { fetchUsers } from "../../actions/user_actions";
+import { createLike, fetchUserLikes, deleteLike } from "../../actions/like_actions";
 
 
 const mSTP = (state, ownProps) => ({
@@ -17,8 +18,8 @@ const mSTP = (state, ownProps) => ({
   users: state.entities.users,
   comments: state.entities.comments,
   currentUser: state.entities.users[state.session.id],
-
-});
+  userLikes: state.entities.userLikes
+});   
 
 const mDTP = (dispatch) => ({
   fetchSounds: () => dispatch(fetchSounds()),
@@ -29,6 +30,9 @@ const mDTP = (dispatch) => ({
   createComment: (comment) => dispatch(createComment(comment)),
   deleteComment: (commentId) => dispatch(deleteComment(commentId)),
   fetchUsers: () => dispatch(fetchUsers()),
+  fetchUserLikes: (userId) => dispatch(fetchUserLikes(userId)),
+  deleteLike: (likeId) => dispatch(deleteLike(likeId)),
+  createLike: (like) => dispatch(createLike(like)),
 });
 
 export default withRouter(connect(mSTP, mDTP)(SoundShow));

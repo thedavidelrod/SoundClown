@@ -63,8 +63,14 @@
   font-size: 28px;
   border-radius: 100px;
   outline: none;
-  background: rgb(167,75,0);
-  background: linear-gradient(45deg, rgba(167,75,0,1) 16%, rgba(196,79,0,1) 35%, rgba(221,90,0,1) 60%, rgba(255,85,0,1) 95%); 
+  background: rgb(167, 75, 0);
+  background: linear-gradient(
+    45deg,
+    rgba(167, 75, 0, 1) 16%,
+    rgba(196, 79, 0, 1) 35%,
+    rgba(221, 90, 0, 1) 60%,
+    rgba(255, 85, 0, 1) 95%
+  );
 }
 
 .comments-form-wrapper {
@@ -100,6 +106,21 @@
   display: flex;
   margin-top: 20px;
   padding-left: 10px;
+}
+
+.comment-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  object-fit: cover;
+}
+.comment-photo-div {
+  padding-right: 5px;
+}
+
+.comment-photo-empty {
+  background: rgb(167,75,0);
+  background: linear-gradient(45deg, rgba(167,75,0,1) 16%, rgba(196,79,0,1) 35%, rgba(221,90,0,1) 60%, rgba(255,85,0,1) 95%); 
 }
 
 .comment-index-header {

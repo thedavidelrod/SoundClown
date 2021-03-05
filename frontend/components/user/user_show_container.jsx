@@ -10,11 +10,14 @@ import {
   fetchUserSounds,
 } from "../../actions/sounds_actions";
 import { updateUser, fetchUser } from "../../actions/user_actions";
+import { createLike, fetchUserLikes, deleteLike } from "../../actions/like_actions";
 
 const mSTP = (state, ownProps) => ({
   user: state.entities.users[ownProps.match.params.id],
   sounds: state.entities.sounds,
-  currentUser: state.entities.users[state.session.currentUser],
+  currentUser: state.entities.users[state.session.id],
+  userLikes: state.entities.userLikes,
+
 });
 
 const mDTP = (dispatch) => ({
@@ -31,6 +34,9 @@ const mDTP = (dispatch) => ({
   fetchUser: (user) => dispatch(fetchUser(user)),
   fetchUserSounds: (userId) => dispatch(fetchUserSounds(userId)),
   updateUser: (userData, id) => dispatch(updateUser(userData, id)),
+  fetchUserLikes: (userId) => dispatch(fetchUserLikes(userId)),
+  deleteLike: (likeId) => dispatch(deleteLike(likeId)),
+  createLike: (like) => dispatch(createLike(like)),
 });
 
 export default connect(mSTP, mDTP)(UserShow);

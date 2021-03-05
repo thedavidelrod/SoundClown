@@ -10,6 +10,7 @@ export default class SoundShow extends Component {
       authorID: "",
       commentID: "",
       commentBody: "",
+      liked: false,
     };
 
     this.deleteSound = this.deleteSound.bind(this);
@@ -18,14 +19,43 @@ export default class SoundShow extends Component {
     this.handleComment = this.handleComment.bind(this);
     this.commentIndex = this.commentIndex.bind(this);
     this.allComments = this.allComments.bind(this);
+    this.userLikesSounds = this.userLikesSounds.bind(this);
+    this.handleLike = this.handleLike.bind(this);
   }
 
   componentDidMount() {
+    scrollTo(0, 0);
+    this.props.fetchUserLikes();
+
     this.props.fetchSound(this.props.match.params.id);
     this.props.fetchComments();
   }
   update(field) {
     return (e) => this.setState({ [field]: e.target.value });
+  }
+
+  userLikesSounds() {
+    let soundIds = [];
+    Object.values(this.props.userLikes).forEach((like) => {
+      soundIds.push(like.sound_id);   
+    });
+    return soundIds;
+  }
+
+  handleLike(soundId) {
+    const { currentUser, userLikes } = this.props;
+    if (!this.userLikesSounds().includes(soundId)) {
+      let like = { user_id: currentUser.id, sound_id: soundId };
+      this.props.createLike(like);
+    } else {
+      let likeId = null;
+      Object.values(userLikes).forEach((like) => {
+        if (like.sound_id === soundId) {
+          likeId = like.id;
+        }
+      });
+      this.props.deleteLike(likeId);
+    }
   }
 
   deleteSound(id) {
@@ -72,7 +102,7 @@ export default class SoundShow extends Component {
         >
           <div className="comment-photo-div">
             {" "}
-            <Link to={`/users/${comments.author_id}`}>
+            <Link to={`/users/${comment.author_id}`}>
               {this.props.comments[comment.id].photoUrl ? (
                 <img
                   className="comment-photo"
@@ -92,7 +122,7 @@ export default class SoundShow extends Component {
                   className="comment-other-author"
                   to={`/users/${comment.author_id}`}
                 >
-                  {this.props.comments[comment.id].author.username}
+                  {this.props.comments[comment.id].username}
                 </Link>
               )}
             </div>
@@ -137,11 +167,12 @@ export default class SoundShow extends Component {
   }
 
   render() {
-    if (!this.props.sound) {
+    if (!this.props.sound || !this.props.users) {
       return null; //fixes weird undefined issue
     }
+// debugger
+
     let buttons;
-        // debugger;
     if (this.props.sound.uploader_id === this.props.user) {
       buttons = (
         <div className="ss-edit-buttons">
@@ -170,7 +201,26 @@ export default class SoundShow extends Component {
           </div>
           <img src={this.props.sound.photoUrl} className="si-image" />
         </div>
-        <div className="si-buttons">{buttons}</div>
+        <div className="song-show-buttons">
+          {this.userLikesSounds().includes(this.props.sound.id) ? (
+            <button
+              className="profile-song-like liked"
+              onClick={() => this.handleLike(this.props.sound.id)}
+            >
+              <FontAwesomeIcon className="like-icon" icon="heart" />
+              Unlike
+            </button>
+          ) : (
+            <button
+              className="profile-song-like"
+              onClick={() => this.handleLike(this.props.sound.id)}
+            >
+              <FontAwesomeIcon className="like-icon" icon="heart" />
+              Like
+            </button>
+          )}
+        </div>
+        {/* <div className="si-buttons">{buttons}</div> */}
 
         <div className="comment-form-parent">
           <div className="comment-form-wrapper">

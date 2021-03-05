@@ -5,7 +5,7 @@ t.integer :user_id, null: false
 t.integer :sound_id, null: false
       t.timestamps
     end
-    add_index :likes, :user_id, unique: true
-    add_index :likes, :sound_id, unique: true
+    add_index :likes, :user_id
+    add_index :likes, :sound_id
   end
 end

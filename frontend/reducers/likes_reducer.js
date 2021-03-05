@@ -7,11 +7,8 @@ import {
 const likesReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
 
-  let likesArr = [];
-
   switch (action.type) {
     case RECEIVE_LIKES:
-     
       return action.likes;
     case RECEIVE_LIKE:
       return Object.assign({}, oldState, { [action.like.id]: action.like });
