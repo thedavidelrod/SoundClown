@@ -9,11 +9,12 @@ export default class LogInForm extends Component {
     };
     this.demoLogin = this.demoLogin.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    this.props.processForm(user).then(() => this.props.closeModal());
   }
 
   renderErrors() {
@@ -43,7 +44,6 @@ export default class LogInForm extends Component {
   }
 
   render() {
-        
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
@@ -84,6 +84,7 @@ export default class LogInForm extends Component {
               Demo Login
             </button>
             <br />
+
             {this.renderErrors()}
             <span className="fine-print">
               <p>

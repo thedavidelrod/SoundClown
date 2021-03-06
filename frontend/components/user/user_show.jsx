@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PlayContainer from "../sound_player/play_container";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Waveform from "./waveform";
+import WaveformContainer from "./waveform_container";
 
 export default class UserShow extends Component {
   constructor(props) {
@@ -98,7 +100,7 @@ export default class UserShow extends Component {
                 </div>
               </div>
             </div>
-            {/* <WaveformContainer index={i} sound={sound} /> */}
+            <WaveformContainer index={i} sound={sound} />
             <div className="profile-song-footer">
               {this.userLikesSounds().includes(sound.id) ? (
                 <button
@@ -130,7 +132,7 @@ export default class UserShow extends Component {
       return null;
     }
     const { user } = this.props;
-// debugger
+      //debugger
     return (
       <div>
         <div className="profile-main">

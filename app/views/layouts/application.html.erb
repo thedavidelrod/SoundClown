@@ -2,9 +2,11 @@
 <html>  
   <head>
     <title>Timbrehaar</title>
+
+
   <%= favicon_link_tag asset_path('soundcloud_logo.png') %>
        <meta property="og:title" content="Timbrehaar"/>
-     <meta property="og:image" content="app/assets/images/Screen Shot 2021-01-11 at 1.15.38 PM.png" />
+     <meta property="og:image" content="<%= image_url(`Screen Shot 2021-01-11 at 1.15.38 PM.png`)%>" />
      <meta property="og:description"
        content="Timbrehaar is a Soundcloud clone."
      />
@@ -16,7 +18,6 @@
     <%= stylesheet_link_tag "application", media: "all" %>
     <%= javascript_include_tag "application" %>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,500" rel="stylesheet">
-    <script></script>
         <script src="https://unpkg.com/wavesurfer.js"></script>
   </head>
 

@@ -33,7 +33,7 @@ import {
   faAngleDown,
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
-import { create } from "wavesurfer.js";
+// import { create } from "wavesurfer.js";
 
 library.add(
   fab,

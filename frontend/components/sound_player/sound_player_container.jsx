@@ -10,7 +10,6 @@ import {
   receiveRandomSounds,
 } from "../../actions/sound_player_actions";
 
-import {fetchComments, createComment, deleteComment} from '../../actions/comment_actions'
 
 const mSTP = (state) => ({
   currentSound: state.entities.sounds[state.ui.soundPlayer.currentSoundId],

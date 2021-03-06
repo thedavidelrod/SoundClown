@@ -17,8 +17,23 @@
   height: 380px;
   background: linear-gradient(To top left, black, whitesmoke);
   color: whitesmoke;
-  text-shadow: 1px 1px whitesmoke;
+  // text-shadow: 1px 1px whitesmoke;
 }
+
+.ss-words {
+  width: 750px;
+  padding-left: 41px;
+  // display: flex;
+}
+.ss-words-top {
+  display: flex;
+  justify-content: space-between;
+}
+.ss-words-bottom {
+margin-top: 10px;
+    display: flex;
+    justify-content: space-between; 
+  }
 
 .si-image {
   display: flex;
@@ -26,28 +41,33 @@
   height: 340px;
   width: 340px;
 }
-
-.ss.body {
-  left: -225px;
-  position: relative;
+.ss-title {
+      display: inline-block;
+    background: black;
+    font-size: 16px;
+    padding: 4px 6px 5px 6px;
+    color: white;
 }
-.ss-words {
-  display: flex;
-  flex-direction: column;
-  margin: auto;
+.ss-body {
+      display: inline-block;
+    background: black;
+    font-size: 16px;
+    padding: 4px 6px 5px 6px;
+    color: white;
 }
-
-.si-words {
-  position: relative;
-  left: 60%;
-  bottom: 67px;
-}
-.si-title {
-  font-size: 15px;
-}
-
-.si-tag {
+.ss-tag {
+  color: white;
+  background: gray;
   font-size: 12px;
+  padding: 0px 7px;
+  border-radius: 20px;
+  align-items: center;
+  height: 18px;
+  margin-top: 3px;
+  display: flex;
+  flex-direction: row-reverse;  
+      width: fit-content;
+    
 }
 
 .uploadsi-body {
@@ -119,8 +139,14 @@
 }
 
 .comment-photo-empty {
-  background: rgb(167,75,0);
-  background: linear-gradient(45deg, rgba(167,75,0,1) 16%, rgba(196,79,0,1) 35%, rgba(221,90,0,1) 60%, rgba(255,85,0,1) 95%); 
+  background: rgb(167, 75, 0);
+  background: linear-gradient(
+    45deg,
+    rgba(167, 75, 0, 1) 16%,
+    rgba(196, 79, 0, 1) 35%,
+    rgba(221, 90, 0, 1) 60%,
+    rgba(255, 85, 0, 1) 95%
+  );
 }
 
 .comment-index-header {

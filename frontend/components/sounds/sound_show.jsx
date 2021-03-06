@@ -37,7 +37,7 @@ export default class SoundShow extends Component {
   userLikesSounds() {
     let soundIds = [];
     Object.values(this.props.userLikes).forEach((like) => {
-      soundIds.push(like.sound_id);   
+      soundIds.push(like.sound_id);
     });
     return soundIds;
   }
@@ -170,7 +170,7 @@ export default class SoundShow extends Component {
     if (!this.props.sound || !this.props.users) {
       return null; //fixes weird undefined issue
     }
-// debugger
+    // debugger
 
     let buttons;
     if (this.props.sound.uploader_id === this.props.user) {
@@ -189,15 +189,16 @@ export default class SoundShow extends Component {
     return (
       <div className="ss-main">
         <div className="ss-banner">
-          <br />
           <PlayContainer soundId={this.props.sound.id} />
-          <div className="ss-words">
-            <span className="ss-title">{this.props.sound.title}</span>
-            <br />
 
-            <span className="ss-tag">{this.props.sound.tag}</span>
-            <br />
-            <span className="ss-body">{this.props.sound.body}</span>
+          <div className="ss-words">
+            <div className="ss-words-top">
+              <span className="ss-title">{this.props.sound.title}</span>
+            </div>
+            <div className="ss-words-bottom">
+              <span className="ss-body">{this.props.sound.body}</span>
+              <span className="ss-tag">{this.props.sound.tag}</span>
+            </div>
           </div>
           <img src={this.props.sound.photoUrl} className="si-image" />
         </div>
