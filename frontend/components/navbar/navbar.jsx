@@ -17,12 +17,13 @@ stream() {
 }
 
 library() {
+  console.log(this.props.user)
   this.props.history.push(`/users/${this.props.user.id}`)
-}
+} 
 
   render() {
     let buttons;
-
+  
     if (this.props.user) {
       buttons = (
         <div className="loggedin-right">
@@ -38,7 +39,7 @@ library() {
     } else {
       buttons = (
         <div className="login-buttons">
-          <button
+          <button 
             className="login-button"
             onClick={() => this.props.openModal("login")}
           >

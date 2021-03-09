@@ -11,6 +11,7 @@ class SignupForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePhoto = this.handlePhoto.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
   update(field) {
@@ -32,12 +33,9 @@ class SignupForm extends React.Component {
     formData.append("user[email]", this.state.email);
     formData.append("user[password]", this.state.password);
     formData.append("user[photo]", this.state.photo);
-    // formData.append("user[photoUrl]", this.state.photoUrl)
     const user = Object.assign({}, this.state);
-          //  this.props.processForm({user: {  user }});
      this.props.processForm(formData);
 
-      console.log(user);
 
     // this.props.closeModal();
   }
@@ -53,12 +51,7 @@ class SignupForm extends React.Component {
     }
   }
 
-  // handlePhoto(e) {
-  //   e.preventDefault();
-  //   this.setState({
-  //     photo: e.target.files[0],
-  //   });
-  // }
+
   
   renderErrors() {
     return (

@@ -11,6 +11,7 @@ export default class LogInForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
   }
+  
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
