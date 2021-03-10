@@ -11,6 +11,8 @@ export default class UserShow extends Component {
     this.soundList = this.soundList.bind(this);
     this.handleLike = this.handleLike.bind(this);
     this.userLikesSounds = this.userLikesSounds.bind(this);
+    this.deleteSound = this.deleteSound.bind(this);
+    this.handlePhoto = this.handlePhoto.bind(this);
   }
 
   componentDidMount(e) {
@@ -24,6 +26,23 @@ export default class UserShow extends Component {
       scrollTo(0, 0);
       this.props.fetchUserSounds(this.props.match.params.id);
       this.props.fetchUser(this.props.match.params.id);
+    }
+  }
+
+  deleteSound(id) {
+    e.preventDefault();
+    this.props.deleteSound(id);
+    this.props.history.push("/sounds");
+  }
+
+  handlePhoto(e) {
+    e.preventDefault();
+    const { user } = this.props;
+    const file = e.target.files[0];
+    if (file) {
+      const formData = new FormData();
+      formData.append("user[photo]", file);
+      this.props.updateUser(formData, user.id);
     }
   }
 
@@ -86,15 +105,12 @@ export default class UserShow extends Component {
               <div className="profile-song-info">
                 <div className="profile-song-info-top">
                   <li>
-                    <Link to={`/users/${sound.user_id}`}>
-                      {/* <p className="profile-song-artist">{sound.artist}</p> */}
-                    </Link>
+                    <Link to={`/users/${sound.user_id}`}></Link>
                   </li>
-                  {/* <li>{uploadTime(sound.created_at)}</li> */}
                 </div>
                 <div className="profile-song-info-bottom">
                   <li>
-                    <Link to={`/sound/${sound.id}`}>{sound.title}</Link>{" "}
+                    <Link to={`/sounds/${sound.id}`}>{sound.title}</Link>{" "}
                   </li>
                   <li>{sound.tag}</li>
                 </div>
@@ -122,7 +138,7 @@ export default class UserShow extends Component {
             </div>
           </div>
         </div>
-        );
+      );
     });
     return soundList;
   }
@@ -131,8 +147,33 @@ export default class UserShow extends Component {
     if (!this.props.user || !this.props.sounds) {
       return null;
     }
-    const { user } = this.props;
-      //debugger
+    const { user, currentUser } = this.props;
+
+    const uploadProfilePicButton =
+      user !== currentUser ? null : !user.photoUrl && user === currentUser ? (
+        <label className="profile-photo-label">
+          <FontAwesomeIcon icon="camera" />
+          &nbsp;Upload Profile Image
+          <input
+            type="file"
+            id="fileProfile"
+            accept="image/*"
+            onChange={this.handlePhoto}
+          />
+        </label>
+      ) : (
+        <label className="profile-photo-label">
+          <FontAwesomeIcon icon="camera" />
+          Update Image
+          <input
+            type="file"
+            id="fileProfile"
+            accept="image/*"
+            onChange={this.handlePhoto}
+          />
+        </label>
+      );
+
     return (
       <div>
         <div className="profile-main">
@@ -144,7 +185,9 @@ export default class UserShow extends Component {
                 ) : (
                   <div className="profile-pic-top">&nbsp;</div>
                 )}
+                <li className="profile-pic-button">{uploadProfilePicButton}</li>
               </div>
+
               <li className="user-display-name">{user.username}</li>
             </div>
           </div>

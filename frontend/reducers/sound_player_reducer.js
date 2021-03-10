@@ -6,6 +6,7 @@ import {
   PAUSE_SOUND,
   RECEIVE_RANDOM_SOUNDS,
 } from "../actions/sound_player_actions";
+import { LOGOUT_CURRENT_USER } from "../actions/session_actions";
 
 const defaultState = {
   playing: false,
@@ -32,21 +33,23 @@ const soundPlayerReducer = (state = defaultState, action) => {
       return newState;
     case PLAY_SOUND:
       newState.playing = true;
-      return newState
+      return newState;
     case PAUSE_SOUND:
       newState.playing = false;
-      return newState
+      return newState;
     case RECEIVE_RANDOM_SOUNDS:
-
       const sounds = Object.values(action.sounds);
       for (let i = 0; i < sounds.length - 1; i++) {
-        let ranNum = Math.floor(Math.random() * (sounds.length));
+        let ranNum = Math.floor(Math.random() * sounds.length);
         [sounds[i], sounds[ranNum]] = [sounds[ranNum], sounds[i]];
       }
       sounds.forEach((sound) => {
         newState.queue.push(sound.id);
       });
       return newState;
+              
+      case LOGOUT_CURRENT_USER:
+      return defaultState;
     default:
       return state;
   }

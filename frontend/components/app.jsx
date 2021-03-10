@@ -19,8 +19,8 @@ const App = () => (
       <ProtectedRoute path="/sounds/new" component={SoundFormContainer} />
       <ProtectedRoute path="/sounds/:id/edit" component={EditFormContainer} />
       <ProtectedRoute path="/sounds/:id" component={SoundShowContainer} />
-      <ProtectedRoute path="/sounds" component={SoundIndexContainer} />
       <ProtectedRoute path="/users/:id" component={UserShowContainer} />
+      <ProtectedRoute path="/sounds" component={SoundIndexContainer} />
       <AuthRoute path="/" component={SplashContainer} />
     </Switch>
     <SoundPlayerContainer />

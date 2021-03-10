@@ -9,12 +9,10 @@ const SoundsReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState;
   switch (action.type) {
-    
     case RECEIVE_SOUNDS:
       return action.sounds;
-      
+
     case RECEIVE_SOUND:
-      
       newState = { [action.payload.id]: action.payload };
       return Object.assign({}, state, newState);
     case REMOVE_SOUND:

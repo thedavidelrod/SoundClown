@@ -11,7 +11,7 @@
 #  updated_at      :datetime         not null
 #
 class User < ApplicationRecord
-  has_one_attached :photo
+  has_one_attached :photo 
 
   has_many :sounds,
            foreign_key: :uploader_id,

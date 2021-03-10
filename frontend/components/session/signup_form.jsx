@@ -7,10 +7,8 @@ class SignupForm extends React.Component {
       email: "",
       username: "",
       password: "",
-      photo: null,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handlePhoto = this.handlePhoto.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
   }
 
@@ -32,7 +30,6 @@ class SignupForm extends React.Component {
     formData.append("user[username]", this.state.username);
     formData.append("user[email]", this.state.email);
     formData.append("user[password]", this.state.password);
-    formData.append("user[photo]", this.state.photo);
     const user = Object.assign({}, this.state);
      this.props.processForm(formData);
 
@@ -40,16 +37,7 @@ class SignupForm extends React.Component {
     // this.props.closeModal();
   }
 
-  handlePhoto(e) {
-    const file = e.currentTarget.files[0];
-    const fileReader = new FileReader();
-    fileReader.onloadend = () => {
-      this.setState({ photo: file, photoUrl: fileReader.result });
-    };
-    if (file) {
-      fileReader.readAsDataURL(file);
-    }
-  }
+ 
 
 
   
@@ -105,12 +93,7 @@ class SignupForm extends React.Component {
               className="login-input"
             />
             <br />
-            Upload A Profile Picture
-            <input
-              className="login-input"
-              type="file"
-              onChange={this.handlePhoto}
-            ></input>
+            
             <input
               className="session-submit"
               type="submit"

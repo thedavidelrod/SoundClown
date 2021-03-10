@@ -13,6 +13,9 @@ export default class SoundIndex extends Component {
       mouseOnTrending: null,
       artists: null,  
     };
+    this.trendingSounds = this.trendingSounds.bind(this);
+    this.newestSounds = this.newestSounds.bind(this);
+    this.mustListen = this.mustListen.bind(this); 
   }
   componentDidMount() {
     this.props.fetchSounds();
@@ -59,7 +62,7 @@ export default class SoundIndex extends Component {
       .reverse()
       .map((sound, i) => {
         let soundArt = sound.photoUrl ? (
-          <img className="song-art-img" src={soundArt} />
+          <img className="song-art-img" src={sound.photoUrl} />
         ) : null;
 
         return (
@@ -89,7 +92,7 @@ export default class SoundIndex extends Component {
                   <PlayContainer soundId={sound.id} />
                 </div>
               ) : null}
-              <Link className="song-item-artist" to={`/users/${sound.user_id}`}>
+              <Link className="song-item-artist" to={`/users/${sound.uploader_id}`}>
                 {sound.artist}
               </Link>
             </li>
@@ -127,10 +130,10 @@ export default class SoundIndex extends Component {
                 onMouseEnter={() => this.setState({ mouseOnTrending: sound.id })}
                 onMouseLeave={() => this.setState({ mouseOnTrending: null })}
               >
-                <PlayContainer SoundId={sound.id} />
+                <PlayContainer soundId={sound.id} />
               </div>
             ) : null}
-            <Link className="song-item-artist" to={`/users/${sound.user_id}`}>
+            <Link className="song-item-artist" to={`/users/${sound.uploader_id}`}>
               {sound.artist}
             </Link>
           </li>
@@ -141,7 +144,7 @@ export default class SoundIndex extends Component {
   }
 
   render() {
-    // debugger
+    //  debugger
     return (
       <div className="discover-parent">
         <div className="discover-main">

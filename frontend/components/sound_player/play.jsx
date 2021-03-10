@@ -18,8 +18,10 @@ export default class Play extends Component {
           this.props.receivePreviousSound(this.props.soundId)
         this.props.playSound();
         player.setAttribute('autoplay', "");
+
         setTimeout(() => {player.play(), 100})
       }
+        console.log(this.props.playing);
 
   }
 
