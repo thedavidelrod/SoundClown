@@ -120,7 +120,7 @@ export default class SoundIndex extends Component {
               <Link to={`/sounds/${sound.id}`}>{soundArt}</Link>
             </div>
             <div className="song-item-title">
-              <Link className="discover-title-link" to={`/song/${sound.id}`}>
+              <Link className="discover-title-link" to={`/sounds/${sound.id}`}>
                 {sound.title}
               </Link>
             </div>
@@ -166,7 +166,7 @@ export default class SoundIndex extends Component {
         <div className="discover-side">
           <div className="discover-side-header">
             <FontAwesomeIcon icon="users" />
-            <p>Must Listen Artists</p>
+            <p>Meet Our Users</p>
           </div>
           <ul className="discover-side-ul">{this.state.artists}</ul>
         </div>

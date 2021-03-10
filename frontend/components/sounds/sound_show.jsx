@@ -220,6 +220,7 @@ export default class SoundShow extends Component {
               Like
             </button>
           )}
+          {buttons}
         </div>
         {/* <div className="si-buttons">{buttons}</div> */}
 

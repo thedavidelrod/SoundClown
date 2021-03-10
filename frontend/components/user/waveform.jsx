@@ -55,8 +55,19 @@ class Waveform extends React.Component {
       height: 80,
       progressColor: "#ff5500",
       fillParent: true,
-      minPxPerSec: 1,   
+      minPxPerSec: 1,
+      xhr: {
+        cache: "default",
+        mode: "cors",
+        method: "GET",
+        credentials: "same-origin",
+        headers: [
+          { key: "cache-control", value: "no-cache" },
+          { key: "pragma", value: "no-cache" },
+        ],
+      },   
     });
+    console.log(this.props)
     this.waveform.load(this.props.sound.soundUrl);
 
     this.waveform.setVolume(0);
