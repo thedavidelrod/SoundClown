@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+// import SearchbarContainer from "./searchbar_container";
 export default class Navbar extends Component {
   constructor(props) {
     super(props);
@@ -58,13 +59,23 @@ library() {
 
     return (
       <div className="navbar">
-        <div className="nav-left">      
+        <div className="nav-left">
           <div className="logo-left"> </div>
-          <button className="home-button" onClick={this.home}> Home</button>
-          <button className="stream-button" onClick={this.stream}>Stream</button>
-          <button className="library-button" onClick={this.library}> Library</button>
+          <button className="home-button" onClick={this.home}>
+            {" "}
+            Home
+          </button>
+          <button className="stream-button" onClick={this.stream}>
+            Stream
+          </button>
+          <button className="library-button" onClick={this.library}>
+            {" "}
+            Library
+          </button>
         </div>
-
+        <div className="user-search">
+          {/* <SearchbarContainer /> */}
+        </div>
         <div className="nav-right">{buttons}</div>
       </div> //! end div
     );

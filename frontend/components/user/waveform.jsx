@@ -19,7 +19,7 @@ class Waveform extends React.Component {
     this.waveform.seekTo(scroll.value / this.waveform.getDuration());
     this.waveform.play();
   }
-  
+
   componentDidUpdate() {
     const player = document.getElementById("audio");
     const scroll = document.getElementById("scrollbar");
@@ -31,7 +31,10 @@ class Waveform extends React.Component {
       scroll.removeEventListener("click", this.handleScroll);
     }
 
-    if (this.props.playing && this.props.currentSoundId === this.props.sound.id) {
+    if (
+      this.props.playing &&
+      this.props.currentSoundId === this.props.sound.id
+    ) {
       this.waveform.play(player.currentTime);
     }
 
@@ -61,13 +64,14 @@ class Waveform extends React.Component {
         mode: "cors",
         method: "GET",
         credentials: "same-origin",
+        redirect: "follow",
+        referrer: "client",
         headers: [
           { key: "cache-control", value: "no-cache" },
           { key: "pragma", value: "no-cache" },
         ],
-      },   
+      },
     });
-    console.log(this.props)
     this.waveform.load(this.props.sound.soundUrl);
 
     this.waveform.setVolume(0);

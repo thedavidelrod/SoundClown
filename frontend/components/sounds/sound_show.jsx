@@ -176,10 +176,10 @@ export default class SoundShow extends Component {
     if (this.props.sound.uploader_id === this.props.user) {
       buttons = (
         <div className="ss-edit-buttons">
-          <button onClick={() => this.props.deleteSound(this.props.sound.id)}>
+          <button className="ss-delete" onClick={() => this.props.deleteSound(this.props.sound.id)}>
             Delete
           </button>
-          <button onClick={() => this.editSound(this.props.sound.id)}>
+          <button className="ss-edit" onClick={() => this.editSound(this.props.sound.id)}>
             Edit
           </button>
         </div>
@@ -202,7 +202,7 @@ export default class SoundShow extends Component {
           </div>
           <img src={this.props.sound.photoUrl} className="si-image" />
         </div>
-        <div className="song-show-buttons">
+        <div className="ss-buttons">
           {this.userLikesSounds().includes(this.props.sound.id) ? (
             <button
               className="profile-song-like liked"

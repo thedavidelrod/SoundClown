@@ -30,10 +30,10 @@
   justify-content: space-between;
 }
 .ss-words-bottom {
-margin-top: 10px;
-    display: flex;
-    justify-content: space-between; 
-  }
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
 
 .si-image {
   display: flex;
@@ -42,18 +42,18 @@ margin-top: 10px;
   width: 340px;
 }
 .ss-title {
-      display: inline-block;
-    background: black;
-    font-size: 16px;
-    padding: 4px 6px 5px 6px;
-    color: white;
+  display: inline-block;
+  background: black;
+  font-size: 16px;
+  padding: 4px 6px 5px 6px;
+  color: white;
 }
 .ss-body {
-      display: inline-block;
-    background: black;
-    font-size: 16px;
-    padding: 4px 6px 5px 6px;
-    color: white;
+  display: inline-block;
+  background: black;
+  font-size: 16px;
+  padding: 4px 6px 5px 6px;
+  color: white;
 }
 .ss-tag {
   color: white;
@@ -65,9 +65,41 @@ margin-top: 10px;
   height: 18px;
   margin-top: 3px;
   display: flex;
-  flex-direction: row-reverse;  
-      width: fit-content;
-    
+  flex-direction: row-reverse;
+  width: fit-content;
+}
+
+.ss-buttons {
+  display: flex;
+}
+
+.ss-edit-buttons {
+  display: flex;
+}
+
+.ss-delete {
+  background: white;
+  border-radius: 3px;
+  border: 1px solid gray;
+  display: flex;
+  height: 23px;
+  padding: 6px 9px;
+  font-size: 11px;
+  outline: none;
+  margin-left: 5px;
+
+}
+
+.ss-edit {
+  background: white;
+  border-radius: 3px;
+  border: 1px solid gray;
+  display: flex;
+  height: 23px;
+  padding: 6px 9px;
+  font-size: 11px;
+  outline: none;
+  margin-left: 5px;
 }
 
 .uploadsi-body {

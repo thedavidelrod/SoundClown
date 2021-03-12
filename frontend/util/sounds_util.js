@@ -28,7 +28,7 @@ export const updateSound = (sound, id) =>
     url: `api/sounds/${id}`,
     processData: false,
     contentType: false,
-    data: { sound },
+    data:  sound ,
     dataType: "json",
   });
 
