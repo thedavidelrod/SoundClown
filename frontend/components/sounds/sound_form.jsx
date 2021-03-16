@@ -9,7 +9,6 @@ export default class SoundForm extends Component {
     this.handlePhoto = this.handlePhoto.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
-      
   }
 
   // componentDidUpdate() {
@@ -70,8 +69,6 @@ export default class SoundForm extends Component {
   }
 
   render() {
-
-//  debugger
     const photoPreview = this.state.photoUrl ? (
       <img className="upload-photo-preview" src={this.state.photoUrl} />
     ) : null;
@@ -79,7 +76,7 @@ export default class SoundForm extends Component {
     const uploadPhotoButton = !this.state.photoUrl ? (
       <label className="upload-photo-label">
         <FontAwesomeIcon icon="camera" />
-        Upload Image
+          Upload Image
         <input
           type="file"
           id="file"
@@ -102,58 +99,45 @@ export default class SoundForm extends Component {
 
     return (
       <div className="upload-form">
-        <form onSubmit={this.handleSubmit} className="ui-form">
-          <h1 className="upload-h1">Upload to TimbreHaar</h1>
-          <input
-            className="upload-form-input-title"
-            type="text"
-            placeholder="Sound Name"
-            onChange={this.update("title")}
-          />
-          <input
-            className="upload-form-input-tag"
-            type="text"
-            placeholder="tag/genre"
-            onChange={this.update("tag")}
-          />
-          <input
-            className="upload-form-input-body"
-            type="text"
-            placeholder="Artist"
-            onChange={this.update("body")}
-          />
-          {/* <div className="upload-details-form">
-            <div className="song-photo">
-              {photoPreview}
-              <span className="upload-submit">
-                <input
-                  type="file"
-                  onChange={this.handlePhoto}
-                  accept="image/*"
-                  className="ui-photo"
-                />
-                Upload a photo
-              </span>
-            </div>
-          </div> */}
-          <div className="upload-details-form">
-            <div className="song-photo">
-              {photoPreview}
-              {uploadPhotoButton}
-            </div>
-          </div>
+        <h1 className="upload-h1">Upload to TimbreHaar</h1>
+        <label className="upload-sound-button">
+          Choose a sound to upload
           <input
             type="file"
             onChange={this.handleSound}
             accept="audio/*, .m4a, .mp3, .wav, .flac .ogg, .aac"
-            className="ui-sound"
-            background="#orange"
           />
-          Upload a sound
-          <br />
-          <br />
+        </label>
+        <form onSubmit={this.handleSubmit} className="ui-form">
+          <div className="ui-div">
+            <div className="upload-details-form">
+              <div className="song-photo">{photoPreview}</div>
+              {uploadPhotoButton}
+            </div>
+            <div className="ui-words">
+              Sound Name
+              <input
+                className="upload-form-input-title"
+                type="text"
+                onChange={this.update("title")}
+              />
+              Tag/Genre
+              <input
+                className="upload-form-input-tag"
+                type="text"
+                onChange={this.update("tag")}
+              />
+              Artist
+              <input
+                className="upload-form-input-body"
+                type="text"
+                onChange={this.update("body")}
+              />
+              <button className="submit-sound">create</button>
+            </div>
+          </div>
+
           {this.renderErrors()}
-          <button>Submit a Sound</button>
         </form>
       </div>
     );
