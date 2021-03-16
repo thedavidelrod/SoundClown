@@ -14,7 +14,7 @@ export default class SoundShow extends Component {
     };
 
     this.deleteSound = this.deleteSound.bind(this);
-    this.editSound = this.editSound.bind(this);
+      // this.editSound = this.editSound.bind(this);
     this.update = this.update.bind(this);
     this.handleComment = this.handleComment.bind(this);
     this.commentIndex = this.commentIndex.bind(this);
@@ -60,13 +60,13 @@ export default class SoundShow extends Component {
 
   deleteSound(id) {
     e.preventDefault();
-    this.props.deleteSound(id);
+    this.props.deleteSound(id);   
     this.props.history.push("/sounds");
   }
 
-  editSound(id) {
-    this.props.history.push(`/sounds/${id}/edit/`);
-  }
+  // editSound(id) {
+  //   this.props.history.push(`/sounds/${id}/edit/`);
+  // }
 
   handleComment(e) {
     e.preventDefault();
@@ -179,9 +179,9 @@ export default class SoundShow extends Component {
           <button className="ss-delete" onClick={() => this.props.deleteSound(this.props.sound.id)}>
             Delete
           </button>
-          <button className="ss-edit" onClick={() => this.editSound(this.props.sound.id)}>
+          {/* <button className="ss-edit" onClick={() => this.editSound(this.props.sound.id)}>
             Edit
-          </button>
+          </button> */}
         </div>
       );
     }

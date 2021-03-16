@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+  import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class SoundForm extends Component {
@@ -67,16 +67,20 @@ export default class SoundForm extends Component {
       fileReader.readAsDataURL(file);
     }
   }
+  
 
   render() {
+    // debugger
     const photoPreview = this.state.photoUrl ? (
       <img className="upload-photo-preview" src={this.state.photoUrl} />
     ) : null;
 
+    const fileName = this.props.title ? this.state.title : "";
+
     const uploadPhotoButton = !this.state.photoUrl ? (
       <label className="upload-photo-label">
         <FontAwesomeIcon icon="camera" />
-          Upload Image
+        Upload Image
         <input
           type="file"
           id="file"
@@ -119,6 +123,7 @@ export default class SoundForm extends Component {
               <input
                 className="upload-form-input-title"
                 type="text"
+                placeholder={fileName}
                 onChange={this.update("title")}
               />
               Tag/Genre

@@ -14,7 +14,9 @@ home() {
 }
 
 stream() {
-  this.props.history.push('/sounds')
+window.location.href= "https://github.com/thedavidelrod/TimbreHaar";
+
+
 }
 
 library() {
@@ -65,17 +67,15 @@ library() {
             {" "}
             Home
           </button>
-          <button className="stream-button" onClick={this.stream}>
-            Stream
-          </button>
           <button className="library-button" onClick={this.library}>
-            {" "}
             Library
+          </button>{" "}
+          <button
+            className="stream-button" onClick={this.stream}>
+            Github
           </button>
         </div>
-        <div className="user-search">
-          {/* <SearchbarContainer /> */}
-        </div>
+        <div className="user-search">{/* <SearchbarContainer /> */}</div>
         <div className="nav-right">{buttons}</div>
       </div> //! end div
     );
