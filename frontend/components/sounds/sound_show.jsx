@@ -170,7 +170,6 @@ export default class SoundShow extends Component {
     if (!this.props.sound || !this.props.users) {
       return null; //fixes weird undefined issue
     }
-    // debugger
 
     let buttons;
     if (this.props.sound.uploader_id === this.props.user) {

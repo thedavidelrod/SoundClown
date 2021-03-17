@@ -6,7 +6,6 @@ export default class Splash extends Component {
   }
 
   render() {
-    // debugger
     return (
       <div className="splash-main">
         <div className="splash-text">

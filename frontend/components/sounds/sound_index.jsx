@@ -144,7 +144,6 @@ export default class SoundIndex extends Component {
   }
 
   render() {
-    //  debugger
     return (
       <div className="discover-parent">
         <div className="discover-main">
