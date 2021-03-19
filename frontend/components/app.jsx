@@ -17,15 +17,14 @@ const App = () => (
     <ModalContainer />
     <Route path="/" component={NavbarContainer} />
     <AuthRoute path="/" component={SplashContainer} />
+    <AuthRoute path="/signup" component={SignupFormContainer} />
 
     <Switch>
-      <ProtectedRoute path="/sounds" component={SoundIndexContainer} />
-      <AuthRoute path="/signup" component={SignupFormContainer} />
-
       <ProtectedRoute path="/sounds/new" component={SoundFormContainer} />
-      <ProtectedRoute path="/sounds/:id/edit" component={EditFormContainer} />
       <ProtectedRoute path="/sounds/:id" component={SoundShowContainer} />
       <ProtectedRoute path="/users/:id" component={UserShowContainer} />
+          <ProtectedRoute path="/sounds" component={SoundIndexContainer} />
+  
     </Switch>
     <SoundPlayerContainer />
   </div>
