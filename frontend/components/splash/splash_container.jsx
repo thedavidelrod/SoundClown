@@ -16,12 +16,16 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    submitForm: ownProps.location.pathname.slice(1) === "login" ? openModal : (modal) => dispatch(openModal(modal)),
+    submitForm:
+      ownProps.location.pathname.slice(1) === "login"
+        ? openModal
+        : (modal) => dispatch(openModal(modal)),
     closeModal: () => dispatch(closeModal(modal)),
     fetchUsers: () => dispatch(fetchUsers()),
     login: (user) => dispatch(login(user)),
     signup: (user) => dispatch(signup(user)),
-
+    openModal: (modal) => dispatch(openModal(modal)),
+    closeModal: () => dispatch(closeModal()),
   };
 };
 

@@ -10,6 +10,7 @@ class SignupForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
 
   update(field) {
@@ -26,21 +27,22 @@ class SignupForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
-    
+
     formData.append("user[username]", this.state.username);
     formData.append("user[email]", this.state.email);
     formData.append("user[password]", this.state.password);
     const user = Object.assign({}, this.state);
-     this.props.processForm(formData);
-
+    this.props.processForm(formData);
 
     // this.props.closeModal();
   }
 
- 
+  demoLogin(e) {
+    e.preventDefault();
+    const user = { username: "testuser", password: "testuser" };
+    this.props.login(user).then(() => this.props.closeModal());
+  }
 
-
-  
   renderErrors() {
     return (
       <ul className="errors-words">
@@ -93,12 +95,15 @@ class SignupForm extends React.Component {
               className="login-input"
             />
             <br />
-            
+
             <input
               className="session-submit"
               type="submit"
               value={this.props.formType}
             />
+            <button className="demo-log" onClick={this.demoLogin}>
+              Demo Login
+            </button>
             {this.renderErrors()}
             <span className="fine-print-signup">
               <p>

@@ -5,7 +5,6 @@ import SignupForm from "./signup_form";
 import { closeModal } from "../../actions/modal_actions";
 
 import { receiveErrors, clearErrors } from "../../actions/errors_actions";
-// { errors }
 const mapStateToProps = (state) => {
   return {
     user: state.entities.users[state.session.id],

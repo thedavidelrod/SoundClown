@@ -70,9 +70,9 @@ export default class SoundForm extends Component {
   
 
   render() {
-    const photoPreview = this.state.photoUrl ? (
-      <img className="upload-photo-preview" src={this.state.photoUrl} />
-    ) : null;
+      const photoPreview = this.state.photoUrl ? (
+        <img className="upload-photo-preview" src={this.state.photoUrl} />
+      ) : null;
 
     const fileName = this.props.title ? this.state.title : "";
 

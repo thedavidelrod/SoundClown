@@ -10,12 +10,11 @@ export default class Navbar extends Component {
   }
   
 home() {
-  this.props.history.push('/')
+  this.props.history.push('/sounds')
 }
 
 stream() {
 window.location.href= "https://github.com/thedavidelrod/TimbreHaar";
-
 
 }
 
