@@ -9,33 +9,35 @@ export default class Play extends Component {
   }
 
   handlePlay() {
-        const player = document.getElementById("audio");
-      if (this.props.playing && this.props.currentSound.id === this.props.soundId) {
-          this.props.pauseSound()
-          player.pause();
-      } else {
-          this.props.receiveCurrentSound(this.props.soundId)
-          this.props.receivePreviousSound(this.props.soundId)
-        this.props.playSound();
-        player.setAttribute('autoplay', "");
+    const player = document.getElementById("audio");
+    if (
+      this.props.playing &&
+      this.props.currentSound.id === this.props.soundId
+    ) {
+      this.props.pauseSound();
+      player.pause();
+    } else {
+      this.props.receiveCurrentSound(this.props.soundId);
+      this.props.receivePreviousSound(this.props.soundId);
+      this.props.playSound();
+      player.setAttribute("autoplay", "");
 
-        setTimeout(() => {player.play(), 100})
-      }
-
+      setTimeout(() => {
+        player.play(), 100;
+      });
+    }
   }
 
   render() {
     return (
-      
-        <button className="play-button" onClick={this.handlePlay}>
-          {this.props.playing && this.props.currentSound.id === this.props.soundId ? 
-            <FontAwesomeIcon icon="pause" />
-           : 
-            <FontAwesomeIcon icon="play" />
-          }
-        </button>
-   
+      <button className="play-button" onClick={this.handlePlay}>
+        {this.props.playing &&
+        this.props.currentSound.id === this.props.soundId ? (
+          <FontAwesomeIcon icon="pause" />
+        ) : (
+          <FontAwesomeIcon icon="play" />
+        )}
+      </button>
     );
   }
 }
-
