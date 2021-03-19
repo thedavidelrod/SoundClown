@@ -221,7 +221,7 @@ export default class SoundPlayer extends Component {
               ) : null}
             </Link>
             <div className="player-title-artist">
-              <Link className="player-title" to={`/sounds/${currentSound.id}`}>
+                <Link className="player-title" to={`/sounds/${currentSound.id}`}>
                 {currentSound.title}
               </Link>
             </div>
@@ -233,7 +233,7 @@ export default class SoundPlayer extends Component {
   <div>
     <audio id="audio" 
     controls
-    src={soundUrl}
+    src={soundUrl}      
     onLoadedMetadata={this.handleMetadata}
     onPlaying={this.handleTimeElapsed}
     onEnded={this.handleNextSound}

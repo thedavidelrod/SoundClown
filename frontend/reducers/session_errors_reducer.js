@@ -16,12 +16,10 @@ const sessionErrorsReducer = (state = [], action) => {
       return action.errors;
     case RECEIVE_ERROR:
       let currentState = state.slice();
-      console.log(action);
       currentState.push(action.errors);
       return currentState;
     case RECEIVE_SESSION_ERRORS:
       let otherState = state.slice();
-      console.log(action);
       otherState.push(action.errors);
       return otherState;
 

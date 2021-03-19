@@ -21,7 +21,6 @@ export default class Play extends Component {
 
         setTimeout(() => {player.play(), 100})
       }
-        console.log(this.props.playing);
 
   }
 

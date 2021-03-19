@@ -19,7 +19,6 @@ window.location.href= "https://github.com/thedavidelrod/TimbreHaar";
 }
 
 library() {
-  console.log(this.props.user)
   this.props.history.push(`/users/${this.props.user.id}`)
 } 
 
