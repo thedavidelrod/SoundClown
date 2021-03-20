@@ -3,20 +3,23 @@
   <head>
     <title>Timbrehaar</title>
 
+ <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+      <script type="text/javascript">
 
-      <link rel="icon" href="<%= image_url('soundcloud_logo.png') %>">
+     <link rel="icon" href="<%= image_url('soundcloud_logo.png') %>">
 
        <meta property="og:title" content="Timbrehaar"/>
-      <meta property="og:image" content= "<%= image_url(`Screen Shot 2021-01-11 at 1.15.38 PM.png`) %>"/>
+    <meta property='og:image' content="<%= image_url('splash.png') %>"/>
      <meta property="og:description"
        content="Timbrehaar is a Soundcloud clone."
      />
      <meta property="og:url" content="https://timbrehaar.herokuapp.com/#/"
      />
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "application", media: "all" %>
-    <%= javascript_include_tag "application" %>
+   
+    
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,500" rel="stylesheet">
     </head>
 
