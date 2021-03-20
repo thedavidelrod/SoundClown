@@ -4,14 +4,14 @@
     <title>Timbrehaar</title>
 
 
-  <%= favicon_link_tag asset_path('soundcloud_logo.png') %>
+      <link rel="icon" href="<%= image_url('soundcloud_logo.png') %>">
+
        <meta property="og:title" content="Timbrehaar"/>
-     <meta property="og:image" content="<%= image_url(`Screen Shot 2021-01-11 at 1.15.38 PM.png`)%>" />
+      <meta property="og:image" content= "<%= image_url(`Screen Shot 2021-01-11 at 1.15.38 PM.png`) %>"/>
      <meta property="og:description"
        content="Timbrehaar is a Soundcloud clone."
      />
-     <meta property="og:url"
-       content="https://timbrehaar.herokuapp.com/#/ "
+     <meta property="og:url" content="https://timbrehaar.herokuapp.com/#/"
      />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
