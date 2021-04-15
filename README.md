@@ -5,3 +5,17 @@
 ![splash](https://github.com/thedavidelrod/TimbreHaar/blob/master/app/assets/images/splash.png)
 
 ## Technologies Used
+
+* AWS S3
+* Heroku
+
+### Frontend
+* CSS/SCSS
+* Javascript
+* React.js
+* Redux.js
+* Wavesurfer.js
+
+### Backend
+* Ruby one Rails
+* PostgreSQL
