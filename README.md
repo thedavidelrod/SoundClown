@@ -20,3 +20,9 @@
 ### Backend
 * Ruby one Rails
 * PostgreSQL
+
+## Features
+
+### Home Page
+* All users who login/signup are greeted with a Discover page that lists all the tracks available on Timbrehaar. "Meet Our Users" randomly grabs 3 users to display. 
+  
