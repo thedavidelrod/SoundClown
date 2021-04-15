@@ -6,6 +6,7 @@
 
 ## Technologies Used
 
+### Hosting
 * AWS S3
 * Heroku
 
