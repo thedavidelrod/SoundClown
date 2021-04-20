@@ -1,24 +1,28 @@
-# README
+# Timbrehaar
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Timbrehaar](http://timbrehaar.herokuapp.com/) is a [Soundcloud](https://soundcloud.com/) clone. Timbrehaar is an online audio distribution platform and music sharing website. Users can upload a song, podcast, or any audio file to be heard around the world. 
 
-Things you may want to cover:
+![splash](https://github.com/thedavidelrod/TimbreHaar/blob/master/app/assets/images/splash.png)
 
-* Ruby version
+## Technologies Used
 
-* System dependencies
+### Hosting
+* AWS S3
+* Heroku
 
-* Configuration
+### Frontend
+* CSS/SCSS
+* Javascript
+* React.js
+* Redux.js
+* Wavesurfer.js
 
-* Database creation
+### Backend
+* Ruby one Rails
+* PostgreSQL
 
-* Database initialization
+## Features
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Home Page
+* All users who login/signup are greeted with a Discover page that lists all the tracks available on Timbrehaar. "Meet Our Users" randomly grabs 3 users to display. 
+  
