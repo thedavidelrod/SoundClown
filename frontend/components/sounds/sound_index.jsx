@@ -38,7 +38,7 @@ export default class SoundIndex extends Component {
       let ranNum = Math.floor(Math.random() * artists.length);
       [artists[i], artists[ranNum]] = [artists[ranNum], artists[i]];
     }
-    const bestArtists = artists.slice(0, 3).map((artist, i) => {
+    const bestArtists = artists.map((artist, i) => {
       return (
         <div key={i} className="discover-must">
           <Link to={`/users/${artist.id}`}>
