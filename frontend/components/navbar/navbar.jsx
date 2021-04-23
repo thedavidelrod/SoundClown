@@ -15,7 +15,7 @@ home() {
 
 stream() {
 window.location.href= "https://github.com/thedavidelrod/TimbreHaar";
-
+window.open("https://github.com/thedavidelrod/TimbreHaar");
 }
 
 library() {
@@ -69,7 +69,10 @@ library() {
             Library
           </button>{" "}
           <button
-            className="stream-button" onClick={this.stream}>
+            className="stream-button"
+            onClick={this.stream}
+            
+          >
             Github
           </button>
         </div>
